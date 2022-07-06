@@ -1,0 +1,69 @@
+
+//1 원래 교재코드
+#include<stdio.h>
+main(){
+  printf("hello, world/n");
+}
+
+//2 산업 표준
+#include<stdio.h>
+main(){
+ printf("hello, world/n");
+ return 0;
+}
+
+//3
+#include<stdio.h>
+ void main(void){
+ printf("hello, world/n");
+}
+
+//4
+#include<stdio.h>
+int main(viud){
+ fprintf(stdout, "hello, world/n");
+  return 0;
+}
+
+//5
+#include<stdio.h>
+int main(void){
+ printf("hello,");
+ printf("world");
+ printf("/n");
+ return 0;
+}
+
+//6
+#include<stdio.h>
+int main(void){
+ printf("hello,"
+   "world/n"
+);
+  return 0;
+}
+
+//7
+#include<stdio.h>
+int main(void)
+{
+ char*str="hello, world";
+ printf("%s/n",str);
+  return 0;
+}
+
+//8
+#include<stdio.h>
+int main(void){
+ printf("%s/n","hello, world");
+  return 0;
+}
+
+//9
+#include<stdio.h>
+int main(void)
+{
+  char str[]="hello, world";
+  printf("%s/n",str);
+  return 0;
+}
