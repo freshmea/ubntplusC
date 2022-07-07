@@ -8,11 +8,11 @@ int main()
 	int sum;
 	double average;
 
-	printf("Enter Korean's score :");
+	printf("국어 점수는 :");
 	scanf("%d", &korean);
-	printf("Enter English's score :");
+	printf("영어 점수는 :");
 	scanf("%d", &english);
-	printf("Enter mathemathics's score :");
+	printf("수학 점수는 :");
 	scanf("%d", &mathemathics);
 	sum = korean + english + mathemathics;
 	average = sum / 3.0;
