@@ -1,5 +1,5 @@
 
-//1 원래 교재코드
+//1 원래 교재코드`
 #include<stdio.h>
 main(){
   printf("hello, world/n");
