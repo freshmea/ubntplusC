@@ -8,7 +8,7 @@ int main(void)
 		int temp;
 		printf("input three score :");
 		scanf("%d %d %d", &value1, &value2, &value3);
-
+		
 		// 첫번째와 둘째를 비교 해서 max min 에 넣음.
 		if (value1 > value2){
 			max = value1;
