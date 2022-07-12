@@ -5,6 +5,7 @@
 int main(void)
 {
 	int question[3];
+	int answer[3]={0};
 	srand(time(NULL));
 	int randn = rand();
 
@@ -21,38 +22,31 @@ int main(void)
 	} while (question[0] == question[1] || question[1] == question[2]);
 
 
-	//정답 출력 
+	// 정답 출력 
 	// for (int i=0;i<3;++i){
 	// 	printf("%d", question[i]);
 	// }
 
-	int count = 0;
+	int count = 1;
 	for(;;){
-		++count;
-		int answer[3]={0};
-
 		//숫자 입력.
 		for(int i=0;i<3;++i){
-			printf("input %d's number : ", i+1 );
+			printf("input %d's Number : ", i+1 );
 			scanf("%d", &answer[i]);
 		}
 
 		// 비교 
 		int strike = 0;
 		int ball = 0;
+		//중첩 for 문 
 		for(int i=0;i<3;++i){
 			for(int j=0;j<3;++j){
 
-				// 스트라이크 카운트
-				if (answer[i] == question[j] && i == j){
-					strike += 1;
-					break;
-				}
-				
-				// 볼 카운트 
-				if (answer[i] == question[j] && i != j){
-					ball += 1;
-					break;
+				if( question[i] == answer[i]){
+					if (i ==j)
+						++strike;
+					else
+						++ball;
 				}
 			}
 		}
@@ -60,9 +54,10 @@ int main(void)
 		// strike ball 갯수 출력.
 		printf("Strike : %d \t Ball : %d\n", strike, ball);
 
-		if (strike == 3){
+		if (strike == 3)
 			break;
-		}
+
+		++count;
 	}
 
 	printf("Congraturation! your count : %d\n", count);
