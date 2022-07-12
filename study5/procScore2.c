@@ -4,7 +4,7 @@
 #define MAXC	100
 #define MAXD	5
 
-
+0.
 int main(void)
 {
 	//배열을 가지고 입력 받기.
