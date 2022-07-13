@@ -34,22 +34,22 @@ void loop(){
   for(int x=0;x<=7;x++){
     
 
-    // for(int j=0;j<=7;j++){
-    // digitalWrite(led[j], LOW);
-    // }
+    for(int j=0;j<=7;j++){
+    digitalWrite(led[j], LOW);
+    }
     
     switch (random(1, 4)){
       case 1:
-          redOnoff(random(2));
+          redOnoff(1);
           break;
       case 2:
-          yellowOnoff(random(2));
+          yellowOnoff(1);
           break;
       case 3:
-          greenOnoff(random(2));
+          greenOnoff(1);
           break;
       case 4:
-          whiteOnoff(random(2));
+          whiteOnoff(1);
           break;
     }
     // digitalWrite(led[random(7)], HIGH);

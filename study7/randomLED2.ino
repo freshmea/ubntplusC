@@ -34,9 +34,9 @@ void loop(){
   for(int x=0;x<=7;x++){
     
 
-    // for(int j=0;j<=7;j++){
-    // digitalWrite(led[j], LOW);
-    // }
+    for(int j=0;j<=7;j++){
+    digitalWrite(led[j], LOW);
+    }
     
     switch (random(1, 4)){
       case 1:
