@@ -68,7 +68,7 @@ void loop(){
     delay(500);
 
     for(int j=0;j<=7;j++){
-    	digitalWrite(led[j], LOW);
+      digitalWrite(led[j], LOW);
     }
     
     }
