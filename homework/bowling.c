@@ -28,11 +28,17 @@ int main(void)
 		if (iscore == 10 && cast != 2)
 			++try;
 
+		//점수 더하기
 		tscore += iscore;
+		//보너스 더하기 
+		if(iscore == 10) strikeOn = 1;
+		if(score[try]+score[try-1] == 10 ){
+			spareOn = 1;
+		}
+
 		if ( cast == 2 || iscore == 10){
 
 			printf("\nframe: %d score: %d\n", frame, tscore);
-
 			++frame;
 			cast = 1;	
 		}else {
@@ -41,7 +47,7 @@ int main(void)
 
 		if( frame == 11){
 			for(int i=0;i<21;++i)
-				printf("%d", score[try]);
+				printf("%d", score[i]);
 			break;
 		}
 		
