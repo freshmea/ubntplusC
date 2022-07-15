@@ -1,23 +1,31 @@
-const int digitalPin = 4;
-const int LED = 3;
+const int Trig = 10;
+const int Echo = 11;
+int temp[3];
+int num;
 
-int led_state = 0;
 void setup(){
-  Serial.begin(9600);
-  pinMode(digitalPin, INPUT);
-  // pinMode(LED, OUTPUT);
+  Serial.begin(115200);
+  pinMode(Trig, OUTPUT);
+  pinMode(Echo, INPUT);
 }
 
 void loop(){
-  int buttonInput = digitalRead(digitalPin);
-  if(buttonInput == HIGH) {
-    for(int t_high=0;t_high<255;t_high++){
-      analogWrite(LED, t_high);
-      delay(1);
-    }
-  } else {
-    analogWrite(LED, LOW);  
-  }
+  digitalWrite(Trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(Trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(Trig, LOW);
 
+  long duration = pulseIn(Echo, HIGH);
+  long distance = (duration/2)/29.1;
+  temp[num] = distance;
+  ++num;
+  if (num>3) num = 0;
   
+  distance = 0;
+  for (int i=0;i<3;i++) distance += temp[i];
+  distance /= 3;
+  
+  Serial.print(distance);
+  Serial.println("  cm");
 }
