@@ -7,8 +7,8 @@ int a, b; // 전역 변수 남용하면 스파게티 코드가 될 수 있다.
 void swap(void)
 {
 	int tmp = a;
-	a= b;
-	b= tmp;
+	a = b;
+	b = tmp;
 }
 int main(void)
 {
