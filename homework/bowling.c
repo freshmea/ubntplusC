@@ -7,24 +7,43 @@
 
 int main(void)
 {
-	int score[23] = {0};
-	int scoreBonus[10] = {0};
-	int iscore = 0;
-	int frame = 1;
-	int cast = 1;
-	int try = 0;
-	int tscore[10] = {0};
+	int score[23] = {0}; // 입력 받은 점수 배열.
+	int scoreBonus[10] = {0}; // 각 프레임당 보너스 배열.
+	int iscore = 0; // 입력 받는 변수 
+	int frame = 1;	//프레임
+	int cast = 1;	//캐스트
+	int try = 0; // 볼 굴린 상태
+	int tscore[10] = {0}; // 토탈 스코어 배열. 
+	int printOn[10] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20}; //프레임 출력 시점 배열. 
 
 	for(;;){
+		//점수 입력
 		iscore = 0;
 		printf("%d frame %d cast : ", frame, cast);
 		scanf("%d", &iscore);
 		score[try] = iscore;
 
+		//프레임 출력 시점 계산
+		for(int i=0;i<10;i++){
+			printOn[i] -= 1;
+			if (score[try] == 10 && (try % 2 == 0) && (try <=i*2))
+				printOn[i] -= 1;
+		}
+
+		//스트라이크와 스페어에서 프레임 출력 시점 조절
+		if(score[try] == 10 && (try % 2 == 0)){
+			printOn[try / 2] += 2;
+		}
+		if(score[try]+score[try-1] == 10 && (try % 2 == 1)){
+			printOn[try / 2] += 1;
+		}
+
+		//현재 볼 굴린 상태 계산.
 		++try;
 		if (iscore == 10 && cast != 2 && try < 19 )
 			++try;
 
+		//현재 프레임과 케스트 계산.
 		if ( ((cast == 2 ) || (iscore == 10)) && try < 19){
 			++frame;
 			cast = 1;	
@@ -57,6 +76,13 @@ int main(void)
 			tscore[j] += scoreBonus[j];
 		}
 
+		//각 프레임출력 시점이 되었을 때 출력
+		for (int i=0;i<10;i++){
+			if(printOn[i] == 0)
+				printf("frame : %d score : %d \n", i+1, tscore[i]);
+		}
+
+		// 마지막 점수 출력
 		if(  (cast == 4 ) || (try == 20 && (score[18]+score[19]<10))) {
 			printf("Frame Score: \t Bomus: \t Totalscore: \n");
 			for(int i=0;i<10;++i)
