@@ -52,28 +52,29 @@ void my_strcat(char *des, const char *src)
 // 	return s;
 // }
 
-//교수님 답
-char *p;
-char* my_strtok(char *s, const char *delim)
-{
-	if (s != NULL){
-		p = s;
-	} else if ( p == NULL){
-		return NULL;
-	}
-	char *token = p;
-	for (int i=0 ; p[i]; ++i){
-		for (int j=0; delim[j]; ++j){
-			if (p[i] == delim[j]){
-				p[i] = '\0';
-				p += i + 1 ;
-				return token;
-			}
-		}
-	}
-	p = NULL;
-	return token;
-}
+//교수님 답 내가 조금 바꿈.
+
+// char* my_strtok(char *s, const char *delim)
+// {
+// 	static char *p;
+// 	if (s != NULL){
+// 		p = s;
+// 	} else if ( p == NULL){
+// 		return NULL;
+// 	}
+// 	char *token = p;
+// 	for (int i=0 ; p[i]; ++i){
+// 		for (int j=0; delim[j]; ++j){
+// 			if (p[i] == delim[j]){
+// 				p[i] = '\0';
+// 				p += i + 1 ;
+// 				return token;
+// 			}
+// 		}
+// 	}
+// 	p = NULL;
+// 	return token;
+// }
 
 // //교수님 답
 // char *p;
@@ -103,3 +104,69 @@ char* my_strtok(char *s, const char *delim)
 
 // 	return token;
 // }
+
+// //교수님 답2
+// char* my_strtok(char *s, const char *delim)
+// {
+// 	static char *p;
+// 	static char *end;
+// 	if (s != NULL){
+// 		p = s;
+// 		end = s + my_strlen(s);
+// 	}
+
+// 	if(end+1 == p) {
+// 		return NULL;
+// 	}
+
+// 	char *token = p;
+
+// 	int i;
+// 	for ( i=0 ; p[i] != '\0'; ++i){
+// 		for (int j=0; delim[j] != '\0'; ++j){
+// 			if (p[i] == delim[j]){
+// 				p[i] = '\0';
+// 				goto OUT;
+// 			}
+// 		}
+// 	}
+// 	OUT: // 레이블 이라고 한다. 
+
+// 	p = p + i + 1;
+
+// 	return token;
+// }
+
+//교수님 답3 pointer version
+char* my_strtok(char *s, const char *delim)
+{
+	static char *p;
+	static char *end;
+
+	if (s != NULL){
+		p = s;
+		end = s + my_strlen(s);
+	}
+
+	if(end+1 == p) {
+		return NULL;
+	}
+
+	char *token = p;
+	int i;
+	while (*p){
+		const char *q = delim;// 이거 왜 써야 하는지 이해가 안가네.
+		while (*q){
+			if(*p == *q){
+				*p = '\0';
+				goto OUT;
+			}
+			++q;
+		}
+		p++;
+	}
+	OUT:
+
+	++p;
+	return token;
+}
