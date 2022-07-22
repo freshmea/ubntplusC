@@ -173,8 +173,6 @@ while(playing):
 		if event.type == pygame.QUIT:
 			playing = False
 		if event.type == pygame.KEYDOWN:
-			if event.key == pygame.K_q:
-				playing = False
 			if event.key == pygame.K_1:
 				keydown('C2')
 			if event.key == pygame.K_2:
@@ -250,6 +248,62 @@ while(playing):
 				keydown('B6')
 			if event.key == pygame.K_m:
 				keydown('C7')
+			if event.mod == pygame.KMOD_NONE:
+				pass
+			else:
+				if event.mod & pygame.KMOD_LSHIFT:
+					if event.key == pygame.K_1:
+						keydown('CS2')
+					if event.key == pygame.K_2:
+						keydown('DS2')
+					if event.key == pygame.K_4:
+						keydown('FS2')
+					if event.key == pygame.K_5:
+						keydown('GS2')
+					if event.key == pygame.K_6:
+						keydown('AS2')
+					if event.key == pygame.K_8:
+						keydown('CS3')
+					if event.key == pygame.K_9:
+						keydown('DS3')
+
+					if event.key == pygame.K_q:
+						keydown('FS3')
+					if event.key == pygame.K_w:
+						keydown('GS3')
+					if event.key == pygame.K_e:
+						keydown('AS3')
+					if event.key == pygame.K_t:
+						keydown('CS4')
+					if event.key == pygame.K_y:
+						keydown('DS4')
+					if event.key == pygame.K_i:
+						keydown('FS4')
+					if event.key == pygame.K_o:
+						keydown('GS4')
+					if event.key == pygame.K_p:
+						keydown('AS4')
+
+					if event.key == pygame.K_s:
+						keydown('CS5')
+					if event.key == pygame.K_d:
+						keydown('DS5')
+					if event.key == pygame.K_g:
+						keydown('FS5')
+					if event.key == pygame.K_h:
+						keydown('GS5')
+					if event.key == pygame.K_l:
+						keydown('AS5')
+
+					if event.key == pygame.K_z:
+						keydown('DS6')
+					if event.key == pygame.K_c:
+						keydown('FS6')
+					if event.key == pygame.K_v:
+						keydown('GS6')
+					if event.key == pygame.K_b:
+						keydown('AS6')
+
 
 		if event.type == pygame.KEYUP:
 			if event.key == pygame.K_1:
@@ -327,6 +381,61 @@ while(playing):
 				keyup()
 			if event.key == pygame.K_m:
 				keyup()
+			if event.mod == pygame.KMOD_NONE:
+				pass
+			else:
+				if event.mod & pygame.KMOD_LSHIFT:
+					if event.key == pygame.K_1:
+						keyup()
+					if event.key == pygame.K_2:
+						keyup()
+					if event.key == pygame.K_4:
+						keyup()
+					if event.key == pygame.K_5:
+						keyup()
+					if event.key == pygame.K_6:
+						keyup()
+					if event.key == pygame.K_8:
+						keyup()
+					if event.key == pygame.K_9:
+						keyup()
+
+					if event.key == pygame.K_q:
+						keyup()
+					if event.key == pygame.K_w:
+						keyup()
+					if event.key == pygame.K_e:
+						keyup()
+					if event.key == pygame.K_t:
+						keyup()
+					if event.key == pygame.K_y:
+						keyup()
+					if event.key == pygame.K_i:
+						keyup()
+					if event.key == pygame.K_o:
+						keyup()
+					if event.key == pygame.K_p:
+						keyup()
+
+					if event.key == pygame.K_s:
+						keyup()
+					if event.key == pygame.K_d:
+						keyup()
+					if event.key == pygame.K_g:
+						keyup()
+					if event.key == pygame.K_h:
+						keyup()
+					if event.key == pygame.K_l:
+						keyup()
+
+					if event.key == pygame.K_z:
+						keyup()
+					if event.key == pygame.K_c:
+						keyup()
+					if event.key == pygame.K_v:
+						keyup()
+					if event.key == pygame.K_b:
+						keyup()
 
 
 	print(song,", ", temp)
