@@ -3,6 +3,9 @@ import pygame
 import time
 from pygame.locals import *
 
+
+
+
 tones = {
     "B0": 31,
     "C1": 33,
@@ -124,7 +127,7 @@ mysong, mytempo = [0, 'B4', 0, 0, 'C5', 'C5', 0, 'D5', 0, 'B4', 0, 'D5', 0, 'D5'
 mysong, mytempo = [0, 'C5', 0, 'C5', 0, 'D5', 0, 'E5', 0, 'C5', 0, 'E5', 0, 'E5', 0, 'F5', 0, 'G5', 0, 'E5', 0, 'G5', 0, 'A5', 0, 'B5', 0, 'C6', 0, 'B5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'D5', 0, 'E5', 0, 'F5', 0, 'D5', 0, 'E5', 0, 'E5', 0, 'F5', 0, 'G5', 0, 'E5', 0, 'G5', 0, 'B5', 0, 'C6', 0, 'B5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'E5', 0, 'D5', 0, 'C5'], [900, 288, 556, 324, 107, 214, 226, 258, 580, 217, 669, 314, 483, 172, 206, 201, 261, 433, 412, 292, 489, 394, 406, 234, 165, 372, 801, 560, 417, 331, 64, 290, 198, 548, 434, 286, 154, 333, 155, 531, 1140, 459, 373, 342, 165, 405, 91, 420, 400, 220, 1455, 437, 393, 374, 35, 338, 97, 425, 421, 193, 612, 262, 573, 696, 277, 738, 284, 258, 185, 301, 120, 291, 192, 201, 270, 596, 268, 445, 535, 643]
 mysong, mytempo = ['C5', 0, 'E5', 0, 'G5', 0, 'C5', 0, 'E5', 0, 'G5', 0, 'A5', 0, 'A5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'D5', 0, 'C5'] ,  [ 488, 373, 406, 824, 635, 184, 569, 139, 455, 275, 581, 159, 537, 225, 504, 278, 500, 244, 529, 1365, 513, 221, 374, 347, 519, 212, 495, 267, 491, 298, 504, 213, 565, 213, 359, 390, 225, 474, 899]
 mysong, mytempo = [0, 'C5', 0, 'C5', 0, 'G5', 0, 'G5', 0, 'A5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'C5', 0, 'A5', 0, 'G5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'A5', 0, 'G5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'C5', 0, 'C5', 0, 'G5', 0, 'G5', 0, 'A5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'D5', 0, 'C5', 0, 0, 'E5', 'E5', 0, 'F5', 0, 'G5', 0, 0, 'A5', 'A5'] ,  [2838, 242, 293, 188, 293, 177, 297, 165, 376, 151, 392, 193, 344, 251, 797, 210, 323, 196, 320, 196, 284, 218, 289, 162, 358, 249, 304, 224, 861, 248, 318, 229, 292, 214, 276, 218, 281, 232, 340, 215, 260, 234, 300, 261, 724, 249, 327, 184, 310, 205, 260, 219, 276, 276, 222, 194, 342, 230, 285, 313, 646, 203, 307, 202, 268, 248, 275, 220, 238, 215, 326, 198, 330, 705, 512, 192, 504, 182, 149, 143, 32, 136, 267, 127, 365, 102, 255, 127, 197, 186, 523, 401, 868, 197, 103, 74, 126, 103, 102, 123, 110, 101, 107, 331]
-mysong, mytempo = [0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'FS5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'FS5'] ,  [7400, 281, 307, 218, 353, 201, 402, 127, 175, 103, 31, 115, 196, 103, 181, 108, 317, 192, 143, 183, 125, 207, 337, 143, 171, 103, 41, 141, 322, 102, 35, 146, 177, 219, 75, 172, 141, 191, 375, 141, 173, 104, 69, 137, 224, 103, 46, 125, 350, 108, 279, 350, 480, 342, 1236, 201, 449, 160, 416, 290, 289, 139, 168, 103, 37, 126, 310, 103, 24, 122, 274, 223, 75, 167, 140, 176, 385, 192, 137, 108, 55, 126, 282, 106, 47, 127, 215, 230, 67, 131, 146, 180, 379, 137, 198, 103, 60, 105, 279, 106, 62, 202, 312, 155, 268, 281, 169, 1055]
+mysong, mytempo = ['D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'FS5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'FS5'] ,  [281, 307, 218, 353, 201, 402, 127, 175, 103, 31, 115, 196, 103, 181, 108, 317, 192, 143, 183, 125, 207, 337, 143, 171, 103, 41, 141, 322, 102, 35, 146, 177, 219, 75, 172, 141, 191, 375, 141, 173, 104, 69, 137, 224, 103, 46, 125, 350, 108, 279, 350, 480, 342, 1236, 201, 449, 160, 416, 290, 289, 139, 168, 103, 37, 126, 310, 103, 24, 122, 274, 223, 75, 167, 140, 176, 385, 192, 137, 108, 55, 126, 282, 106, 47, 127, 215, 230, 67, 131, 146, 180, 379, 137, 198, 103, 60, 105, 279, 106, 62, 202, 312, 155, 268, 281, 169, 1055]
 
 SCREEN_X = 640   # 화면 넓이
 SCREEN_Y = 480   # 화면 높이
@@ -144,8 +147,26 @@ screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))
 
 song=[]
 temp=[]
+key ='C5'
 playing = True
 t_temp = pygame.time.get_ticks()
+
+def keydown(note):
+	global t_temp
+	global key
+	song.append(0)
+	temp.append(int(pygame.time.get_ticks()-t_temp))
+	t_temp = pygame.time.get_ticks()
+	key = note
+	winsound.Beep(tones[note],100)
+
+def keyup():
+	global key
+	global t_temp
+	song.append(key)
+	temp.append(int(pygame.time.get_ticks()-t_temp))
+	t_temp = pygame.time.get_ticks()
+
 while(playing):
 	pressed_key = pygame.key.get_pressed()
 	for event in pygame.event.get():
@@ -154,128 +175,158 @@ while(playing):
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_q:
 				playing = False
-			if event.key == pygame.K_a:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'B4'
-				winsound.Beep(tones['B4'],100)
-			if event.key == pygame.K_s:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'C5'
-				winsound.Beep(tones['C5'],100)
-			if event.key == pygame.K_d:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'D5'
-				winsound.Beep(tones['D5'],100)
-			if event.key == pygame.K_f:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'E5'
-				winsound.Beep(tones['E5'],100)
-			if event.key == pygame.K_g:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'F5'
-				winsound.Beep(tones['F5'],100)
+			if event.key == pygame.K_1:
+				keydown('C2')
+			if event.key == pygame.K_2:
+				keydown('D2')
+			if event.key == pygame.K_3:
+				keydown('E2')
+			if event.key == pygame.K_4:
+				keydown('F2')
+			if event.key == pygame.K_5:
+				keydown('G2')
+			if event.key == pygame.K_6:
+				keydown('A2')
+			if event.key == pygame.K_7:
+				keydown('B2')
+			if event.key == pygame.K_8:
+				keydown('C3')
+			if event.key == pygame.K_9:
+				keydown('D3')
+			if event.key == pygame.K_0:
+				keydown('E3')
+
+			if event.key == pygame.K_q:
+				keydown('F3')
+			if event.key == pygame.K_w:
+				keydown('G3')
+			if event.key == pygame.K_e:
+				keydown('A3')
+			if event.key == pygame.K_r:
+				keydown('B3')
+			if event.key == pygame.K_t:
+				keydown('C4')
 			if event.key == pygame.K_y:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'FS5'
-				winsound.Beep(tones['FS5'],100)
+				keydown('D4')
+			if event.key == pygame.K_u:
+				keydown('E4')
+			if event.key == pygame.K_i:
+				keydown('F4')
+			if event.key == pygame.K_o:
+				keydown('G4')
+			if event.key == pygame.K_p:
+				keydown('A4')
+
+			if event.key == pygame.K_a:
+				keydown('B4')
+			if event.key == pygame.K_s:
+				keydown('C5')
+			if event.key == pygame.K_d:
+				keydown('D5')
+			if event.key == pygame.K_f:
+				keydown('E5')
+			if event.key == pygame.K_g:
+				keydown('F5')
 			if event.key == pygame.K_h:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'G5'
-				winsound.Beep(tones['G5'],100)
+				keydown('G5')
 			if event.key == pygame.K_j:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'A5'
-				winsound.Beep(tones['A5'],100)
+				keydown('A5')
 			if event.key == pygame.K_k:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'B5'
-				winsound.Beep(tones['B5'],100)
+				keydown('B5')
 			if event.key == pygame.K_l:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'C6'
-				winsound.Beep(tones['C6'],100)
+				keydown('C6')
+
 			if event.key == pygame.K_z:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'D6'
-				winsound.Beep(tones['D6'],100)
+				keydown('D6')
 			if event.key == pygame.K_x:
-				song.append(0)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-				key = 'E6'
-				winsound.Beep(tones['E6'],100)
+				keydown('E6')
+			if event.key == pygame.K_c:
+				keydown('F6')
+			if event.key == pygame.K_v:
+				keydown('G6')
+			if event.key == pygame.K_b:
+				keydown('A6')
+			if event.key == pygame.K_n:
+				keydown('B6')
+			if event.key == pygame.K_m:
+				keydown('C7')
 
 		if event.type == pygame.KEYUP:
-			if event.key == pygame.K_a:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-			if event.key == pygame.K_s:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-			if event.key == pygame.K_d:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-			if event.key == pygame.K_f:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
-			if event.key == pygame.K_g:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
+			if event.key == pygame.K_1:
+				keyup()
+			if event.key == pygame.K_2:
+				keyup()
+			if event.key == pygame.K_3:
+				keyup()
+			if event.key == pygame.K_4:
+				keyup()
+			if event.key == pygame.K_5:
+				keyup()
+			if event.key == pygame.K_6:
+				keyup()
+			if event.key == pygame.K_7:
+				keyup()
+			if event.key == pygame.K_8:
+				keyup()
+			if event.key == pygame.K_9:
+				keyup()
+			if event.key == pygame.K_0:
+				keyup()
+
+			if event.key == pygame.K_q:
+				keyup()
+			if event.key == pygame.K_w:
+				keyup()
+			if event.key == pygame.K_e:
+				keyup()
+			if event.key == pygame.K_r:
+				keyup()
+			if event.key == pygame.K_t:
+				keyup()
 			if event.key == pygame.K_y:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()	
+				keyup()
+			if event.key == pygame.K_u:
+				keyup()
+			if event.key == pygame.K_i:
+				keyup()
+			if event.key == pygame.K_o:
+				keyup()
+			if event.key == pygame.K_p:
+				keyup()
+
+			if event.key == pygame.K_a:
+				keyup()
+			if event.key == pygame.K_s:
+				keyup()
+			if event.key == pygame.K_d:
+				keyup()
+			if event.key == pygame.K_f:
+				keyup()
+			if event.key == pygame.K_g:
+				keyup()
 			if event.key == pygame.K_h:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
+				keyup()
 			if event.key == pygame.K_j:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
+				keyup()
 			if event.key == pygame.K_k:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
+				keyup()
 			if event.key == pygame.K_l:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
+				keyup()
+
 			if event.key == pygame.K_z:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
+				keyup()
 			if event.key == pygame.K_x:
-				song.append(key)
-				temp.append(int(pygame.time.get_ticks()-t_temp))
-				t_temp = pygame.time.get_ticks()
+				keyup()
+			if event.key == pygame.K_c:
+				keyup()
+			if event.key == pygame.K_v:
+				keyup()
+			if event.key == pygame.K_b:
+				keyup()
+			if event.key == pygame.K_n:
+				keyup()
+			if event.key == pygame.K_m:
+				keyup()
 
 
 	print(song,", ", temp)
