@@ -128,6 +128,8 @@ mysong, mytempo = [0, 'C5', 0, 'C5', 0, 'D5', 0, 'E5', 0, 'C5', 0, 'E5', 0, 'E5'
 mysong, mytempo = ['C5', 0, 'E5', 0, 'G5', 0, 'C5', 0, 'E5', 0, 'G5', 0, 'A5', 0, 'A5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'D5', 0, 'C5'] ,  [ 488, 373, 406, 824, 635, 184, 569, 139, 455, 275, 581, 159, 537, 225, 504, 278, 500, 244, 529, 1365, 513, 221, 374, 347, 519, 212, 495, 267, 491, 298, 504, 213, 565, 213, 359, 390, 225, 474, 899]
 mysong, mytempo = [0, 'C5', 0, 'C5', 0, 'G5', 0, 'G5', 0, 'A5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'C5', 0, 'A5', 0, 'G5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'A5', 0, 'G5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'C5', 0, 'C5', 0, 'G5', 0, 'G5', 0, 'A5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'D5', 0, 'C5', 0, 0, 'E5', 'E5', 0, 'F5', 0, 'G5', 0, 0, 'A5', 'A5'] ,  [2838, 242, 293, 188, 293, 177, 297, 165, 376, 151, 392, 193, 344, 251, 797, 210, 323, 196, 320, 196, 284, 218, 289, 162, 358, 249, 304, 224, 861, 248, 318, 229, 292, 214, 276, 218, 281, 232, 340, 215, 260, 234, 300, 261, 724, 249, 327, 184, 310, 205, 260, 219, 276, 276, 222, 194, 342, 230, 285, 313, 646, 203, 307, 202, 268, 248, 275, 220, 238, 215, 326, 198, 330, 705, 512, 192, 504, 182, 149, 143, 32, 136, 267, 127, 365, 102, 255, 127, 197, 186, 523, 401, 868, 197, 103, 74, 126, 103, 102, 123, 110, 101, 107, 331]
 mysong, mytempo = ['D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'FS5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'D5', 0, 'E5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'G5', 0, 'FS5'] ,  [281, 307, 218, 353, 201, 402, 127, 175, 103, 31, 115, 196, 103, 181, 108, 317, 192, 143, 183, 125, 207, 337, 143, 171, 103, 41, 141, 322, 102, 35, 146, 177, 219, 75, 172, 141, 191, 375, 141, 173, 104, 69, 137, 224, 103, 46, 125, 350, 108, 279, 350, 480, 342, 1236, 201, 449, 160, 416, 290, 289, 139, 168, 103, 37, 126, 310, 103, 24, 122, 274, 223, 75, 167, 140, 176, 385, 192, 137, 108, 55, 126, 282, 106, 47, 127, 215, 230, 67, 131, 146, 180, 379, 137, 198, 103, 60, 105, 279, 106, 62, 202, 312, 155, 268, 281, 169, 1055]
+mysong, mytempo = [0, 'C5', 0, 'E5', 0, 'G5', 0, 'C5', 0, 'E5', 0, 'G5', 0, 'A5', 0, 'A5', 0, 'A5', 0, 'G5', 0, 'F5', 0, 'F5', 0, 'F5', 0, 'E5', 0, 'E5', 0, 'E5', 0, 'D5', 0, 'D5', 0, 'D5', 0, 'C5'] ,  [507, 368, 410, 309, 390, 350, 280, 429, 230, 409, 260, 400, 230, 440, 210, 369, 260, 410, 260, 600, 1140, 320, 360, 310, 381, 360, 200, 431, 259, 330, 270, 399, 250, 410, 210, 419, 180, 180, 390, 1189]
+
 
 SCREEN_X = 640   # 화면 넓이
 SCREEN_Y = 480   # 화면 높이
@@ -138,34 +140,44 @@ screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))
 # 	winsound.Beep(ab, 50)
 # 	ab += 1000
 
-# for i in range(len(mysong)):
-# 	print(i)
-# 	if mysong[i] != 0:
-# 		winsound.Beep(tones[mysong[i]], mytempo[i])
-# 	else :
-# 		time.sleep(mytempo[i]/1000)
+for i in range(len(mysong)):
+	print(i)
+	if mysong[i] != 0:
+		winsound.Beep(tones[mysong[i]], mytempo[i])
+	else :
+		time.sleep(mytempo[i]/1000)
 
 song=[]
 temp=[]
 key ='C5'
+key_DOWN = False
 playing = True
 t_temp = pygame.time.get_ticks()
-
 def keydown(note):
 	global t_temp
 	global key
-	song.append(0)
-	temp.append(int(pygame.time.get_ticks()-t_temp))
-	t_temp = pygame.time.get_ticks()
+	global key_DOWN
+	
+	# if not key_DOWN:
+	
 	key = note
-	winsound.Beep(tones[note],100)
+	key_DOWN = True
+	if int(pygame.time.get_ticks()-t_temp) != 0 :
+		song.append(0)
+		temp.append(int(pygame.time.get_ticks()-t_temp))
+		winsound.Beep(tones[note],50)
+	t_temp = pygame.time.get_ticks()
 
 def keyup():
 	global key
 	global t_temp
-	song.append(key)
-	temp.append(int(pygame.time.get_ticks()-t_temp))
-	t_temp = pygame.time.get_ticks()
+	global	key_DOWN
+	if int(pygame.time.get_ticks()-t_temp) != 0 :
+		# if key_DOWN:
+		song.append(key)
+		temp.append(int(pygame.time.get_ticks()-t_temp))
+		t_temp = pygame.time.get_ticks()
+		key_DOWN = False
 
 while(playing):
 	pressed_key = pygame.key.get_pressed()
