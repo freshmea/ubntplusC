@@ -4,7 +4,7 @@
 
 typedef struct{
 	int score[12][3];
-	int frameScore[10];
+	int frameScore[11];
 	char name[10];
 }Score;
 //점수 계산
@@ -36,7 +36,7 @@ void calScore(int *frameScore,const int (*score)[3]){
 		}
 	}
 
-void playGame(Score *player, const int i){
+void playGame(Score *player, int i){
 	// first bowling
 	printf("name : %s\n", player->name);
 	printf("%d frame 1 cast : ", i);
@@ -45,7 +45,7 @@ void playGame(Score *player, const int i){
 	calScore(player->frameScore, player->score);
 
 	// (i-1) frame spare? --> (i-1) frame score
-	if ((player->score[i-1][1]+player->score[i-1][2]) == 10 && ((player->score[i-1][1] != 10)))
+	if (((player->score[i-1][1])+(player->score[i-1][2])) == 10 && ((player->score[i-1][1] != 10)))
 		printf("%d frame : %d\n", i-1, player->frameScore[i-1]);
 	// (i-2) frame strike && (i-1) frame strike --> (i-2) frame score
 	if ((player->score[i-2][1] == 10) && (player->score[i-1][1] == 10))
@@ -62,7 +62,7 @@ void playGame(Score *player, const int i){
 	if (player->score[i-1][1] == 10)
 		printf("%d frame : %d\n", i-1, player->frameScore[i-1]);
 	// i frame first + second < 10 --> i frame score
-	if (player->score[i][1] + player->score[i][2] < 10 && (i >0))
+	if ((player->score[i][1]) + (player->score[i][2]) < 10 && (i >0))
 		printf("%d frame : %d\n", i, player->frameScore[i]);
 }
 
@@ -119,6 +119,8 @@ void playGame10Frame(Score *player){
 		printf("%d frame : %d\n", 10, player->frameScore[10]);
 	}
 }
+
+
 int main(void)
 {
 
