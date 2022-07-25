@@ -27,8 +27,6 @@ int main(void)
 	int frameScore[10] = {0};
 
 	for (int i=1; i<=9; ++i){
-	
-
 		// first bowling
 		printf("%d frame 1 cast : ", i);
 		scanf("%d", &score[i][1]);
