@@ -1,7 +1,7 @@
 #include "PinChangeInterrupt.h"
 
-const int ledPin = 13;
-const int buttonPin = 2;
+const int ledPin = 7;
+const int buttonPin = 4;
 
 int led_state = LOW;
 bool led_state_changed = false;
@@ -14,7 +14,7 @@ void buttonPressed(){
 void setup(){
   pinMode(ledPin, OUTPUT);
   pinMode(buttonPin, INPUT);
-  attachInterrupt(digitalPinToInterrupt(buttonPin), buttonPressed, RISING);
+  attachInterrupt(digitalPinToPCINT(buttonPin), buttonPressed, RISING);
 }
 
 void loop(){
