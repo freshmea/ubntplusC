@@ -29,12 +29,17 @@ unsigned int game_lose[1+8][1+8] ={
   {-1, 0, 0, 0, 0, 0, 0, 0, 0 }
 };
 
+enum {PLAY=0, LOSE, WIN};
+int game_state = PLAY;
+
 int ball_x = 4;
 int ball_x_dir = 1;
 int ball_y = 7;
 int ball_y_dir = 1;
 
 void ball_move(){
+
+  if(game_state != PLAY) return ;
   game_display[ball_y][ball_x] = 0;
   ball_x += ball_x_dir;
   if(ball_x>=8){

@@ -8,24 +8,19 @@ SoftwareSerial mySerial(rxPin, txPin);
 void setup(){
   pinMode(rxPin, INPUT);
   pinMode(txPin, OUTPUT);
-  pinMode(13, OUTPUT);
 
   mySerial.begin(9600);
-  Serial.begin(9600);
-
-  pinMode(13, OUTPUT);
+  Serial.begin(9600);   // HC06.TXD < --- > ARDI.Pin0
 }
 
 void loop(){
   while(Serial.available()>0){
-//    mySerial.write(Serial.read());
-
+    char userInput = Serial.read();
+    Serial.print(userInput);
+    mySerial.write(Serial.read());
   }
 
   while(mySerial.available()>0){
-    //Serial.write(mySerial.read());
-    char cmd = mySerial.read();
-    if(cmd == '0') digitalWrite(13, LOW);
-    if(cmd == '1') digitalWrite(13, HIGH);
+    Serial.write(mySerial.read());
   }
 }
