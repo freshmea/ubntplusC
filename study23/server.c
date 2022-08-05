@@ -19,24 +19,26 @@ void *threadProc(void *arg)
 	char buf[1024];
 	int nread;
 	int cnt =0;
-	while ((nread = read(dataSocket, buf, 1024))!= 0){
+	while ((nread = read(dataSocket, buf, 1024))> 0){
 		printf("%d",++cnt);
 		if (nread == -1){
 			fprintf(stderr, "read() error\n");
 			exit(5);
 		}
 		buf[nread]='\0';
-		printf("buf: %s\t nread: %d strlen(buf): %ld\n", buf,nread, strlen(buf));
+		printf("buf: %s\n", buf);
 		// atonic 하게 만들어야 할 부분. 
 pthread_mutex_lock(&mutex);
 		for (int i=0;i<count;++i){
 			write(dataSockets[i], buf, nread);// nread
+			printf("writing: datasocket Number %d", dataSockets[i]);
 		}
 pthread_mutex_unlock(&mutex);
 	}
 	// EOF
 	// 아토믹. 전역데이타에 접근 
 pthread_mutex_lock(&mutex);
+	printf("client disconneted!! %d\n",  dataSocket);
 	for (int i =0; i<count;++i){
 		if(dataSocket == dataSockets[i]){
 			for(int j =i; j< count-1;++j){
