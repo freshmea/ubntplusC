@@ -10,19 +10,19 @@
 void *sendMsg(void *arg)
 {
 	int dataSocket = *(int *)arg;
-	char buf[1024];
+	char bufs[1024];
 
 	for (;;){
-		fgets(buf, 1024, stdin);
-		if (strcmp(buf, "/q\n")== 0 )
+		fgets(bufs, 1024, stdin);
+		if (strcmp(bufs, "/q\n")== 0 )
 			break;
-		for(int i=0;i<strlen(buf);i++){
-			if(buf[i] == '\n')
-				buf[i] = '\0';
+		for(int i=0;i<strlen(bufs);i++){
+			if(bufs[i] == '\n')
+				bufs[i] = '\0';
 		}
 
-		write(dataSocket, buf, strlen(buf));
-		printf("buf: %s\t nread:  strlen(buf): %ld\n", buf, strlen(buf));
+		write(dataSocket, bufs, strlen(bufs));
+		printf("sending message buf: %s\t nread:  strlen(buf): %ld\n", bufs, strlen(bufs));
 	}
 	
 	close(dataSocket);
@@ -41,8 +41,7 @@ void *recvMsg(void *arg)
 			// error
 		}
 		buf[nread] = '\0';
-		printf("buf: %s\t nread: %d strlen(buf): %ld\n", buf,nread, strlen(buf));
-		fprintf(stdout, "%s", buf);
+		printf("receiving message buf: %s\t nread: %d strlen(buf): %ld\n", buf,nread, strlen(buf));
 	}
 }
 
@@ -56,7 +55,7 @@ int main(void)
 
 	struct sockaddr_in serverAddr;
 	serverAddr.sin_family = AF_INET;
-	serverAddr.sin_addr.s_addr = inet_addr("10.10.11.62");
+	serverAddr.sin_addr.s_addr = inet_addr("192.168.35.155");
 	serverAddr.sin_port = htons(7000);
 
 	int re;
@@ -71,6 +70,7 @@ int main(void)
 	pthread_create(&tid2, NULL, recvMsg, (void *)&dataSocket);
 	pthread_join(tid1, NULL);
 	pthread_join(tid2, NULL);
+
 
 	return 0;
 }
