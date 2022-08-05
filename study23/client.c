@@ -11,14 +11,16 @@ void *sendMsg(void *arg)
 {
 	int dataSocket = *(int *)arg;
 	char bufs[1024];
-
+	int len;
 	for (;;){
 		fgets(bufs, 1024, stdin);
 		if (strcmp(bufs, "/q\n")== 0 )
 			break;
 		for(int i=0;i<strlen(bufs);i++){
 			if(bufs[i] == '\n')
+				// len = i+1;
 				bufs[i] = '\0';
+
 		}
 
 		write(dataSocket, bufs, strlen(bufs));

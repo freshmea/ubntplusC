@@ -31,7 +31,7 @@ void *threadProc(void *arg)
 pthread_mutex_lock(&mutex);
 		for (int i=0;i<count;++i){
 			write(dataSockets[i], buf, nread);// nread
-			printf("writing: datasocket Number %d", dataSockets[i]);
+			printf("writing: datasocket Number %d\n", dataSockets[i]);
 		}
 pthread_mutex_unlock(&mutex);
 	}
