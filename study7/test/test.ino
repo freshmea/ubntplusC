@@ -1,31 +1,34 @@
-const int Trig = 10;
-const int Echo = 11;
-int temp[3];
-int num;
+#include <SoftwareSerial.h>
+
+SoftwareSerial mySerial(2, 3); // RX, TX
+
+unsigned long rtime = millis();
+
+//void blink(){
+//  
+//  if(millis()-rtime>200){
+//    digitalWrite(8, true);
+//    rtime= millis();
+//  }
+//  else if(millis()-rtime>100)
+//    digitalWrite(8, false);
+//}
 
 void setup(){
-  Serial.begin(115200);
-  pinMode(Trig, OUTPUT);
-  pinMode(Echo, INPUT);
+  pinMode(8, OUTPUT);
+  Serial.begin(9600);
+  mySerial.begin(9600);
 }
 
-void loop(){
-  digitalWrite(Trig, LOW);
-  delayMicroseconds(2);
-  digitalWrite(Trig, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(Trig, LOW);
+int rd = 1;
 
-  long duration = pulseIn(Echo, HIGH);
-  long distance = (duration/2)/29.1;
-  temp[num] = distance;
-  ++num;
-  if (num>3) num = 0;
-  
-  distance = 0;
-  for (int i=0;i<3;i++) distance += temp[i];
-  distance /= 3;
-  
-  Serial.print(distance);
-  Serial.println("  cm");
+void loop(){
+  if(mySerial.available()){
+    rd = mySerial.read();
+    Serial.print("rd value :");
+    Serial.println(rd);
+  }
+  if (rd ==1)
+    digitalWrite(8, true);
+  digitalWrite(8, false);
 }

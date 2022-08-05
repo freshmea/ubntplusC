@@ -1,4 +1,5 @@
 #include <SoftwareSerial.h>
+#include <ESP8266WiFi.h>
 
 const byte rxPin = 2;
 const byte txPin = 3;
