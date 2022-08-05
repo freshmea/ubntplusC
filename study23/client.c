@@ -16,9 +16,15 @@ void *sendMsg(void *arg)
 		fgets(buf, 1024, stdin);
 		if (strcmp(buf, "/q\n")== 0 )
 			break;
+		for(int i=0;i<strlen(buf);i++){
+			if(buf[i] == '\n')
+				buf[i] = '\0';
+		}
+
 		write(dataSocket, buf, strlen(buf));
+		printf("buf: %s\t nread:  strlen(buf): %ld\n", buf, strlen(buf));
 	}
-	printf("buf: %s\t nread:  strlen(buf): %ld\n", buf, strlen(buf));
+	
 	close(dataSocket);
 	exit(0);
 
@@ -34,8 +40,8 @@ void *recvMsg(void *arg)
 		if (nread == -1){
 			// error
 		}
-		printf("buf: %s\t nread: %d strlen(buf): %ld\n", buf,nread, strlen(buf));
 		buf[nread] = '\0';
+		printf("buf: %s\t nread: %d strlen(buf): %ld\n", buf,nread, strlen(buf));
 		fprintf(stdout, "%s", buf);
 	}
 }
