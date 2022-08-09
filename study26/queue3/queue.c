@@ -2,23 +2,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ini(Qu *pqu)
+void initQueue(Qu *pqu)
 {
 	pqu->front = 0;
 	pqu->rear = 0;
 }
 
-void push(int data, Qu *pqu)
+void push(Qu *pqu,int data)
 {
-	++pqu->rear;
 	if(pqu->rear == ARRAYSIZE){
 		pqu->rear = 0;
 	}
-	if(pqu->rear == pqu->front){
+	if(pqu->rear+1 == pqu->front){
 		fprintf(stderr, "stack is full\n");
 		exit(1);
 	}
-	pqu->queue[pqu->rear] = data;
+	pqu->queue[pqu->rear++] = data;
 }
 
 int pop(Qu *pqu)

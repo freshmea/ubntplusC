@@ -10,9 +10,9 @@ typedef struct queue{
 	int temp_up_size;
 }Qu;
 
-void push(int data, Qu *pqu);
-int pop(Qu *pqu);
-void ini(Qu *pqu);
+void push(Qu *pqu, int data);
+int pop(Qu *pqu, int *pData);
+void initialize(Qu *pqu, int size);
 void cleanupQueue(Qu *pqu);
 
 #endif

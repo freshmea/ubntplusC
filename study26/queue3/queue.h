@@ -8,8 +8,8 @@ typedef struct queue{
 	int rear;
 }Qu;
 
-void push(int data, Qu *pqu);
+void push(Qu *pqu, int data);
 int pop(Qu *pqu);
-void ini(Qu *pqu);
+void initQueue(Qu *pqu);
 
 #endif
