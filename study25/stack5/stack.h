@@ -3,7 +3,6 @@
 
 typedef struct stack{
 	char name[10];
-	//int *pArr;
 	void *pArr;
 	int eleSize;
 	int size ;
@@ -11,7 +10,6 @@ typedef struct stack{
 }Stack;
 
 void ini(Stack *ps, char *name, int eleSize);
-
 void push(Stack *ps, const void *pData);
 void pop(Stack *ps, void *pData);
 void getName(Stack *ps, char *name);

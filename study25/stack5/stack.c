@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <string.h>
 #define MAXSTACK 1024
 
 // static 전역 함수. 
@@ -25,7 +24,7 @@ void push(Stack *ps, const void *pData)
 	if(ps->tos >= ps->size){
 		assert(ps->size < MAXSTACK+1);
 		ps->size *= 2;
-		ps->pArr=(int *)realloc(ps->pArr, ps->eleSize*ps->size);
+		ps->pArr=realloc(ps->pArr, ps->eleSize*ps->size);
 		// resize(ps); //realloc 대신 쓸 수 있음. 
 		printf("%s overstack, result of Adding size : %d\n", ps->name, ps->size);
 	}
