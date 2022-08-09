@@ -11,6 +11,7 @@ int main(void)
 	for(int i=0;i<NUMBEROFSTACK;i++){
 		initialize(&qu[i], sNames[i], datatype[i]);
 	}
+	
 	int re;
 	char name[10];
 	getName(&qu[0], name);

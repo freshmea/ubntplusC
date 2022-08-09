@@ -8,7 +8,7 @@ void initialize(Qu *pqu, int size)
 	pqu->front = 0;
 	pqu->rear = 0;
 	pqu->size = size;
-	pqu->temp_up_size = 100;
+	pqu->temp_up_size = 10;
 	pqu->loop = pqu->temp_up_size;
 	pqu->pArr = malloc(sizeof(int)*pqu->size);
 	assert(pqu->pArr);
@@ -35,14 +35,17 @@ void push(Qu *pqu, int data)
 int pop(Qu *pqu, int *pData)
 {
 	
-	if(pqu->front == pqu->loop){
+	if(pqu->front == pqu->loop && (pqu->loop != pqu->size)){
 		pqu->front = 0;
 		pqu->loop = pqu->size;
 	}
 	if(pqu->front == pqu->size){
 		pqu->front = 0;
 	}
-	if(pqu->front+1 == pqu->temp_up_size){
+
+	printf("%d, %d, %d, %d \n",pqu->front+1, pqu->temp_up_size,pqu->loop, pqu->size );
+
+	if((pqu->front == pqu->temp_up_size) && (pqu->loop == pqu->size)){
 		pqu->front = pqu->size/2;
 		pqu->temp_up_size = pqu->size;
 	}

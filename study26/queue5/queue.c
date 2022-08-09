@@ -4,27 +4,14 @@
 #include <assert.h>
 #include <string.h>
 
-static void resize(Qu *ps)
-{
-	ps->size *= 2;
-	unsigned char *temp_pArr = (unsigned char*)malloc(ps->eleSize * ps->size);
-	assert(temp_pArr);
-	for(int i=0;i< ps->size/2 ;i++){
-		temp_pArr[i] = ((unsigned char*)ps->pArr)[i];
-	}
-	// free(ps->pArr);
-	ps->pArr = temp_pArr;
-
-}
-
 void initialize(Qu *pqu, const char *name, const int eleSize)
 {
 	strcpy(pqu->name, name);
 	pqu->eleSize = eleSize;
 	pqu->front = 0;
 	pqu->rear = 0;
-	pqu->size = 100;
-	pqu->temp_up_size = 100;
+	pqu->size = 10;
+	pqu->temp_up_size = 10;
 	pqu->loop = pqu->temp_up_size;
 	pqu->pArr = malloc(eleSize*pqu->size);
 	assert(pqu->pArr);
@@ -39,9 +26,9 @@ void push(Qu *pqu, const void *pData)
 		pqu->temp_up_size = pqu->rear;
 		pqu->loop = pqu->size;
 		pqu->rear = pqu->size;
-		// pqu->size *= 2;
-		// pqu->pArr = realloc(pqu->pArr, pqu->eleSize * pqu->size);
-		resize(pqu);
+		pqu->size *= 2;
+		pqu->pArr = realloc(pqu->pArr, pqu->eleSize * pqu->size);
+		// resize(pqu);
 		fprintf(stderr, "sizeup %d\n", pqu->size);
 	}
 	memcpy((unsigned char *)pqu->pArr + pqu->rear++ * pqu->eleSize, pData, pqu->eleSize );
