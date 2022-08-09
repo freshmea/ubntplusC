@@ -6,8 +6,6 @@ typedef struct queue{
 	int front;
 	int rear;
 	int size;
-	int loop;
-	int temp_up_size;
 }Qu;
 
 void push(Qu *pqu, int data);
