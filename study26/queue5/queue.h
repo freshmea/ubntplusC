@@ -3,13 +3,11 @@
 
 typedef struct queue{
 	char name[10];
-	void *pArr;
+	unsigned char *pArr;
 	int eleSize;
 	int front;
 	int rear;
 	int size;
-	int loop;
-	int temp_up_size;
 }Qu;
 
 void initialize(Qu *pqu, const char *name, const int eleSize);

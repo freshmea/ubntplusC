@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+
 static void rearrange(Qu *pqu)
 {
 	int temp[pqu->rear];
@@ -25,6 +26,7 @@ static void rearrange(Qu *pqu)
 	pqu->rear = pqu->size;
 	pqu->front= 1;
 }
+
 void initialize(Qu *pqu, int size)
 {
 	pqu->front = 0;
@@ -55,7 +57,7 @@ int pop(Qu *pqu, int *pData)
 	if(pqu->front == pqu->size){
 		pqu->front = 0;
 	}
-	
+
 	if(pqu->front == pqu->rear){
 		fprintf(stderr, "there is no data\n");
 		exit(1);

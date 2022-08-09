@@ -15,13 +15,13 @@ int main(void)
 	int re;
 	char name[10];
 	getName(&qu[0], name);
-	for(int i=0;i <= 30;i++){
+	for(int i=0;i <= 40;i++){
 		push(&qu[0], &i);
-		printf("%s's push(): %d, front %d, rear %d\n",name, re, qu[0].front, qu[0].rear);
+		// printf("qu0 pushing %d\n", i);
 		push(&qu[0], &i);
-		printf("%s's push(): %d, front %d, rear %d\n",name, re, qu[0].front, qu[0].rear);
+		// printf("qu0 pushing %d\n", i);
 		pop(&qu[0], &re);
-		printf("%s's pop(): %d, front %d, rear %d\n",name, re, qu[0].front, qu[0].rear);
+		printf("%s's pop(): %d\n",name, re);
 	}
 
 	double re2;
@@ -29,11 +29,9 @@ int main(void)
 	for(int i=1;i <= 30;i++){
 		double j = (double)500/i;
 		push(&qu[1], &j);
-		printf("%s's push(): %f, front %d, rear %d\n",name, re2, qu[1].front, qu[1].rear);
 		push(&qu[1], &j);
-		printf("%s's push(): %f, front %d, rear %d\n",name, re2, qu[1].front, qu[1].rear);
 		pop(&qu[1], &re2);
-		printf("%s's pop(): %f, front %d, rear %d\n",name, re2, qu[1].front, qu[1].rear);
+		printf("%s's pop(): %f\n",name, re2);
 	}
 
 	char re3;
@@ -41,11 +39,9 @@ int main(void)
 	for(int i=1;i <= 30;i++){
 		char j = 80+i;
 		push(&qu[2], &j);
-		printf("%s's push(): %c, front %d, rear %d\n",name, re3, qu[2].front, qu[2].rear);
 		push(&qu[2], &j);
-		printf("%s's push(): %c, front %d, rear %d\n",name, re3, qu[2].front, qu[2].rear);
 		pop(&qu[2], &re3);
-		printf("%s's pop(): %c, front %d, rear %d\n",name, re3, qu[2].front, qu[2].rear);
+		printf("%s's pop(): %c\n",name, re3);
 	}
 
 	return 0;
