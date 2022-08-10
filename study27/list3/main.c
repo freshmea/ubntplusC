@@ -4,22 +4,33 @@
 int main(void)
 {
 	List list;
-	initList(&list);
-
+	initList(&list, sizeof(int));
 	for(int i=0;i<10;i++){
-		insertFirstNode(&list, i);		// [4]
+		insertFirstNode(&list, &i);	
 		printList(&list);
 	}
-	insertNode(&list, 1, 2);		// [1, 2, 3 ,4]
+	int inputData = 1;
+	int searchData = 2;
+	insertNode(&list, &inputData, &searchData);	
 	printList(&list);
-	insertPositionNode(&list,7, 9);
+	int inputPos = 7;
+	inputData = 9;
+	insertPositionNode(&list, inputPos, &inputData);
 	printList(&list);
-	deleteNode(&list, 3);			// [1, 2, 4]
+	inputPos = 3;
+	deleteNode(&list, &searchData);			
 	printList(&list);
-	deletePositionNode(&list, 0);			// [1, 2, 4]
-	printList(&list);
+	// deletePositionNode(&list, 0);			
+	// printList(&list);
 
-
+	List list2;
+	initList(&list2, sizeof(double));
+	for(int i=1;i<=10;i++){
+		double j = (double)500/i;
+		insertFirstNode(&list2, &j);
+		printList(&list2);
+	}
+	printFList(&list2);
 
 	cleanupList(&list);
 	return 0;
