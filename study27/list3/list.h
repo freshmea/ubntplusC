@@ -20,7 +20,6 @@ void deleteNode(List *pList, void *data);
 void deletePositionNode(List *pList, int pos);
 
 
-void printList(const List *pList);
-void printFList(const List *pList);
+void printList(const List *pList, void (*print)(const void *));
 
 #endif

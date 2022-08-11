@@ -8,21 +8,21 @@ static Node *createNodere(Node *ptr,const void *data, int eleSize)
 {
 	Node *tmp = malloc(sizeof(Node)+eleSize);
 	assert(tmp );
-	memcpy((unsigned char*)tmp+sizeof(Node), data, eleSize );
+	memcpy(tmp+1, data, eleSize );
 	tmp->next = ptr;
 	return tmp;
 }
 
 
-// static Node *createNode(Node *ptr,const int *data)
-// {
-// 	Node *tmp = malloc(sizeof(Node));
-// 	assert(tmp );
-// 	tmp->data = *data;
-// 	tmp->next = ptr->next;
-// 	ptr->next = tmp;
-// 	return ptr;
-// }
+static Node *createNode(Node *ptr,const int *data,int eleSize)
+{
+	Node *tmp = malloc(sizeof(Node)+eleSize);
+	assert(tmp );
+	memcpy(tmp+1, data, eleSize );
+	tmp->next = ptr->next;
+	ptr->next = tmp;
+	return ptr;
+}
 
 static Node* moveNode(Node *ptr, const int *pos)
 {
@@ -37,7 +37,7 @@ static Node* findNode(Node *ptr,const void *prevData, int eleSize)
 {
 	while(ptr )
 	{
-		if (memcmp((unsigned char*)ptr+sizeof(Node), prevData, eleSize)) break;
+		if (memcmp(ptr+1, prevData, eleSize) == 0) break;
 		ptr = ptr->next;
 	}
 	return ptr;
@@ -47,7 +47,7 @@ static Node* findFFNode(Node *ptr,const void *prevData, int eleSize)
 {
 	while(ptr )
 	{
-		if (memcmp((unsigned char*)ptr+sizeof(Node), prevData, eleSize)) break;
+		if (memcmp(ptr->next+1, prevData, eleSize) == 0) break;
 		ptr = ptr->next;
 	}
 	return ptr;
@@ -62,7 +62,7 @@ static void linkingNode(Node *ptr, Node *ptr2)
 
 static void listGetData(Node *ptr, void *a,int eleSize)
 {
-	memcpy(a,(unsigned char*)ptr+sizeof(Node), eleSize);
+	memcpy(a,ptr+1, eleSize);
 }
 
 
@@ -70,9 +70,6 @@ static void listGetData(Node *ptr, void *a,int eleSize)
 
 void initList(List *pList, int eleSize)
 {
-	// pList->ptr = malloc(sizeof(Node));
-	// assert(pList->ptr);
-	// pList->ptr->next = NULL;
 	int gabage = -1;
 	pList->eleSize = eleSize;
 	pList->ptr = createNodere(NULL, &gabage, pList->eleSize);
@@ -90,8 +87,7 @@ void cleanupList(List *pList)
 
 void insertFirstNode(List *pList, void *data)
 {
-	// if(pList->ptr ) pList->ptr = createNode(pList->ptr, &data);
-	if(pList->ptr ) pList->ptr->next = createNodere(pList->ptr->next, data, pList->eleSize);
+	pList->ptr->next = createNodere(pList->ptr->next, data, pList->eleSize);
 }
 
 void insertNode(List *pList, void *prevData, void *data)
@@ -114,7 +110,7 @@ void deleteNode(List *pList, void *data)
 	Node *ptr2 = pList->ptr;
 	ptr = findNode(ptr, data, pList->eleSize);
 	ptr2 = findFFNode(ptr2, data, pList->eleSize);
-	if(ptr ) linkingNode(ptr, ptr2);
+	if(ptr && ptr2) linkingNode(ptr, ptr2);
 }
 
 void deletePositionNode(List *pList, int pos)
@@ -123,18 +119,16 @@ void deletePositionNode(List *pList, int pos)
 	Node *ptr2 = pList->ptr;
 	ptr = moveNode(ptr, &pos);
 	ptr2 = moveNode(ptr2, &pos);
-	if(ptr ) linkingNode(ptr, ptr2);
+	if(ptr && ptr2) linkingNode(ptr, ptr2);
 }
 
-void printList(const List *pList)
+void printList(const List *pList, void (*print)(const void *pData))
 {
 	Node *ptr = pList->ptr->next;
 
 	printf("[");
 	while(ptr ){
-		void *a = malloc(pList->eleSize);
-		listGetData(ptr, a, pList->eleSize);
-		printf("%d", *(int *)a);
+		print(ptr + 1);
 		printf( (ptr->next) ? ", " : "");
 		ptr = ptr->next;
 
@@ -142,21 +136,3 @@ void printList(const List *pList)
 	printf("]\n");
 
 }
-
-void printFList(const List *pList)
-{
-	Node *ptr = pList->ptr->next;
-
-	printf("[");
-	while(ptr ){
-		void *a = malloc(pList->eleSize);
-		listGetData(ptr, a, pList->eleSize);
-		printf("%f", *(double *)a);
-		printf( (ptr->next) ? ", " : "");
-		ptr = ptr->next;
-
-	}
-	printf("]\n");
-
-}
-
