@@ -1,25 +1,26 @@
 #ifndef LIST_H
 #define LIST_H
 
-typedef struct node {
-	struct node *next;
-}Node;
+class Node {
+	public:
+		Node *next;
+};
 
-typedef struct list {
-	Node *ptr;
-	int eleSize;
-}List;
+class List {
+	private:
+		Node *ptr;
+		int eleSize;
 
-void initList(List *pList, int eleSize);
-void cleanupList(List *pList);
+	public:
+		List(int eleSize);
+		~List();
 
-void insertFirstNode(List *pList, void *data);
-void insertNode(List *pList, void *prevData, void *data);
-void insertPositionNode(List *pList, int pos, void *data);
-void deleteNode(List *pList, void *data);
-void deletePositionNode(List *pList, int pos);
-
-
-void printList(const List *pList, void (*print)(const void *));
+		void insertFirstNode(void *data);
+		void insertNode(void *prevData, void *data);
+		void insertPositionNode(int pos, void *data);
+		void deleteNode(void *data);
+		void deletePositionNode(int pos);
+		void printList(void (*print)(const void *));
+};
 
 #endif
