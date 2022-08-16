@@ -4,7 +4,7 @@
 #include <cstring>
 #include "list.h"
 
-static Node *createNodere(Node *ptr,const void *data, int eleSize)
+Node * List::createNodere(Node *ptr,const void *data, int eleSize)
 {
 	Node *tmp = new Node[sizeof(Node)+eleSize];
 	assert(tmp );
@@ -14,7 +14,7 @@ static Node *createNodere(Node *ptr,const void *data, int eleSize)
 }
 
 
-static Node *createNode(Node *ptr,const void *data, int eleSize)
+Node * List::createNode(Node *ptr,const void *data, int eleSize)
 {
 	Node *tmp = new Node[sizeof(Node)+eleSize];
 	assert(tmp );
@@ -24,7 +24,7 @@ static Node *createNode(Node *ptr,const void *data, int eleSize)
 	return ptr;
 }
 
-static Node* moveNode(Node *ptr, const int *pos)
+Node * List::moveNode(Node *ptr, const int *pos)
 {
 	for(int i=0;i<*pos;i++){
 		if(!ptr ) break;
@@ -33,7 +33,7 @@ static Node* moveNode(Node *ptr, const int *pos)
 	return ptr;
 }
 
-static Node* findNode(Node *ptr,const void *prevData, int eleSize)
+Node * List::findNode(Node *ptr,const void *prevData, int eleSize)
 {
 	while(ptr )
 	{
@@ -43,7 +43,7 @@ static Node* findNode(Node *ptr,const void *prevData, int eleSize)
 	return ptr;
 }
 
-static Node* findFFNode(Node *ptr,const void *prevData, int eleSize)
+Node * List::findFFNode(Node *ptr,const void *prevData, int eleSize)
 {
 	if(ptr ){
 		while(ptr->next )
@@ -55,14 +55,14 @@ static Node* findFFNode(Node *ptr,const void *prevData, int eleSize)
 	return ptr;
 }
 
-static void linkingNode(Node *ptr, Node *ptr2)
+void List::linkingNode(Node *ptr, Node *ptr2)
 {
 	Node *tmp = ptr;
 	ptr2->next = ptr->next;
 	free(tmp);
 }
 
-static void listGetData(Node *ptr, void *a,int eleSize)
+void List::listGetData(Node *ptr, void *a,int eleSize)
 {
 	memcpy(a,ptr+1, eleSize);
 }

@@ -47,7 +47,7 @@ int main(void)
 	}
 	list2.deletePositionNode(2);
 	list2.printList(printDouble);
-	double inputData2 = 100.1;
+	double inputData2 = 100.0;
 	list2.deleteNode(&inputData2);
 	list2.printList(printDouble);
 
