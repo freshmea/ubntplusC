@@ -76,7 +76,7 @@ void RationN::rDevide(RationN *pr1)
 
 void RationN::optimal()
 {
-	for(int i=2;i < self.ord;i++){
+	for(int i=2;i <= self.ord;i++){
 		if(!(self.ord%i) && !(self.car%i)) {
 			self.car /= i;
 			self.ord /= i;
@@ -84,7 +84,7 @@ void RationN::optimal()
 	}
 }
 
-double RationN::print()
+double RationN::rPrint()
 {
 	return (double)self.car/self.ord;
 }

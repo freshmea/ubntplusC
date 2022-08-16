@@ -21,7 +21,7 @@ class RationN{
 		void rPlus(RationN *pr1);
 		void rMinus(RationN *pr1);
 		void rDevide(RationN *pr1);
-		double print();
+		double rPrint();
 };
 
 #endif
