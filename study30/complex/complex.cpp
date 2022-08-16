@@ -1,5 +1,17 @@
+#include <iostream>
 #include "complex.h"
 #define self	(*this)
+
+// void print(Complex c)
+// {
+// 	std::cout << "(" << c.real() << ", " << c.imag() << "i)" << std::endl;
+// }
+
+void print(/*const*/ Complex &rc)
+{
+	std::cout << "(" << rc.real() << ", " << rc.imag() << "i)" << std::endl;
+}
+
 Complex::Complex()
 {
 	self.re = 0.0;

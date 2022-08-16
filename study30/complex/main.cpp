@@ -22,5 +22,7 @@ int main()
 	std::cout << "c1 : ( " << c1.real() << ", " << c1.imag() << "i)" << std::endl;
 	std::cout << "c2 : ( " << c2.real() << ", " << c2.imag() << "i)" << std::endl;
 	std::cout << "c3 : ( " << c3.real() << ", " << c3.imag() << "i)" << std::endl;
+	// print(&c1);
+	print(c1);
 	return 0;
 }

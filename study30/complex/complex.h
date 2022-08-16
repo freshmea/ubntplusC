@@ -1,5 +1,8 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
+class Complex;
+// void print(/*const*/ Complex *pc);
+void print(/*const*/ Complex &rc);
 
 class Complex{
 	private:	// 내부구현.
@@ -17,5 +20,6 @@ class Complex{
 		void real(double re);
 		void imag(double im);
 };
+
 
 #endif
