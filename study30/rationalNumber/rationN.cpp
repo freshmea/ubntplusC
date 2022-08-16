@@ -22,9 +22,26 @@ RationN::RationN(int car, int ord)
 	self.ord = ord;
 }
 
+RationN::RationN(const RationN &rhs)
+{
+	self.car = rhs.car;
+	self.ord = rhs.ord;
+}
+
 RationN::~RationN()
 {
 
+}
+
+void RationN::operator=(const RationN &rhs)
+{
+	self.car = rhs.car;
+	self.ord = rhs.ord;
+}
+
+bool RationN::operator==(const RationN &rhs)
+{
+	return ((double)self.car/self.ord == (double)rhs.car/rhs.ord);
 }
 
 int RationN::card()
@@ -46,32 +63,67 @@ void RationN::ordi(int im)
 	self.ord = ord;
 }
 
-void RationN::rMultiply(RationN *pr1)
+RationN RationN::operator*(const RationN &rhs)
 {
-	self.car = self.car * pr1->car;
-	self.ord = self.ord * pr1->ord;
-	self.optimal();
+	RationN tmp;
+	tmp.car = self.car * rhs.car;
+	tmp.ord = self.ord * rhs.ord;
+	tmp.optimal();
+	return tmp;
 }
 
-void RationN::rPlus(RationN *pr1)
+RationN RationN::operator*(const int &rhs)
 {
-	self.car = self.car * pr1->ord + pr1->car * self.ord;
-	self.ord = self.ord * pr1->ord;
-	self.optimal();
+	RationN tmp;
+	tmp.car = self.car * rhs;
+	tmp.ord = self.ord;
+	tmp.optimal();
+	return tmp;
 }
 
-void RationN::rMinus(RationN *pr1)
+RationN RationN::operator+(const RationN &rhs)
 {
-	self.car = self.car * pr1->ord - pr1->car * self.ord;
-	self.ord = self.ord * pr1->ord;
-	self.optimal();
+	RationN tmp;
+	tmp.car = self.car * rhs.ord + rhs.car * self.ord;
+	tmp.ord = self.ord * rhs.ord;
+	tmp.optimal();
+	return tmp;
 }
 
-void RationN::rDevide(RationN *pr1)
+RationN RationN::operator+(const int &rhs)
 {
-	self.car = self.car * pr1->ord;
-	self.ord = self.ord * pr1->car;
-	self.optimal();
+	RationN tmp;
+	tmp.car = self.car + rhs * self.ord;
+	tmp.ord = self.ord ;
+	tmp.optimal();
+	return tmp;
+}
+
+RationN RationN::operator-(const RationN &rhs)
+{
+	RationN tmp;
+	tmp.car = self.car * rhs.ord - rhs.car * self.ord;
+	tmp.ord = self.ord * rhs.ord;
+	tmp.optimal();
+	return tmp;
+}
+
+RationN RationN::operator-(const int &rhs)
+{
+	RationN tmp;
+	tmp.car = self.car - rhs * self.ord;
+	tmp.ord = self.ord ;
+	tmp.optimal();
+	return tmp;
+}
+
+RationN RationN::operator/(const RationN &rhs)
+{
+	RationN tmp;
+	tmp.car = self.car * rhs.ord;
+	tmp.ord = self.ord * rhs.car;
+	tmp.optimal();
+	return tmp;
 }
 
 void RationN::optimal()
