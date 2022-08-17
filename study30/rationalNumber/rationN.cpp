@@ -22,7 +22,7 @@ RationN::RationN(int car, int ord)
 	self.ord = ord;
 }
 
-RationN::RationN(const RationN &rhs)
+RationN::RationN(const RationN& rhs)
 {
 	self.car = rhs.car;
 	self.ord = rhs.ord;
@@ -33,13 +33,13 @@ RationN::~RationN()
 
 }
 
-void RationN::operator=(const RationN &rhs)
+void RationN::operator=(const RationN& rhs)
 {
 	self.car = rhs.car;
 	self.ord = rhs.ord;
 }
 
-bool RationN::operator==(const RationN &rhs)
+bool RationN::operator==(const RationN& rhs)
 {
 	return ((double)self.car/self.ord == (double)rhs.car/rhs.ord);
 }
@@ -63,7 +63,7 @@ void RationN::ordi(int im)
 	self.ord = ord;
 }
 
-RationN RationN::operator*(const RationN &rhs)
+RationN RationN::operator*(const RationN& rhs)
 {
 	RationN tmp;
 	tmp.car = self.car * rhs.car;
@@ -72,7 +72,7 @@ RationN RationN::operator*(const RationN &rhs)
 	return tmp;
 }
 
-RationN RationN::operator*(const int &rhs)
+RationN RationN::operator*(const int& rhs)
 {
 	RationN tmp;
 	tmp.car = self.car * rhs;
@@ -90,7 +90,7 @@ RationN RationN::operator+(const RationN &rhs)
 	return tmp;
 }
 
-RationN RationN::operator+(const int &rhs)
+RationN RationN::operator+(const int& rhs)
 {
 	RationN tmp;
 	tmp.car = self.car + rhs * self.ord;
@@ -99,7 +99,7 @@ RationN RationN::operator+(const int &rhs)
 	return tmp;
 }
 
-RationN RationN::operator-(const RationN &rhs)
+RationN RationN::operator-(const RationN& rhs)
 {
 	RationN tmp;
 	tmp.car = self.car * rhs.ord - rhs.car * self.ord;
@@ -108,7 +108,7 @@ RationN RationN::operator-(const RationN &rhs)
 	return tmp;
 }
 
-RationN RationN::operator-(const int &rhs)
+RationN RationN::operator-(const int& rhs)
 {
 	RationN tmp;
 	tmp.car = self.car - rhs * self.ord;
@@ -117,11 +117,20 @@ RationN RationN::operator-(const int &rhs)
 	return tmp;
 }
 
-RationN RationN::operator/(const RationN &rhs)
+RationN RationN::operator/(const RationN& rhs)
 {
 	RationN tmp;
 	tmp.car = self.car * rhs.ord;
 	tmp.ord = self.ord * rhs.car;
+	tmp.optimal();
+	return tmp;
+}
+
+RationN RationN::operator/(const int& rhs)
+{
+	RationN tmp;
+	tmp.car = self.car;
+	tmp.ord = self.ord * rhs;
 	tmp.optimal();
 	return tmp;
 }

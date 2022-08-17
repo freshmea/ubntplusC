@@ -48,5 +48,10 @@ int main()
 	std::cout << "r2 : " <<r2.rPrint() << std::endl;
 	std::cout << "r3 : " <<r3.rPrint() << std::endl;
 
+	RationN ra1=(2,3);
+
+	ra1 = r3+ra1*3;			// 각 연산자의 연산 순서는 계승됨. 
+	std::cout << "ra1 : " <<ra1.rPrint() << std::endl;	
+
 	return 0;
 }
