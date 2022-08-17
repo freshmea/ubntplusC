@@ -181,7 +181,7 @@ RationN RationN::operator+(const RationN& rhs)
 
 RationN RationN::operator+(const int& rhs)
 {
-	assert((long int)self.car + rhs * self.ord<INT_MAX);
+	assert((long int)self.car + (long int)rhs * self.ord<INT_MAX);
 	RationN tmp(self.car + rhs * self.ord, self.ord);
 	tmp.optimal();
 	return tmp;
@@ -189,6 +189,8 @@ RationN RationN::operator+(const int& rhs)
 
 RationN RationN::operator-(const RationN& rhs)
 {
+	assert((long int)self.car * rhs.ord - (long int)rhs.car * self.ord>INT_MIN);
+	assert((long int)self.ord * rhs.ord<INT_MAX);
 	RationN tmp(self.car * rhs.ord - rhs.car * self.ord, self.ord * rhs.ord);
 	tmp.optimal();
 	return tmp;
@@ -196,6 +198,7 @@ RationN RationN::operator-(const RationN& rhs)
 
 RationN RationN::operator-(const int& rhs)
 {
+	assert((long int)self.car- (long int)rhs *self.ord>INT_MIN);
 	RationN tmp(self.car - rhs * self.ord, self.ord);
 	tmp.optimal();
 	return tmp;
@@ -203,6 +206,8 @@ RationN RationN::operator-(const int& rhs)
 
 RationN RationN::operator/(const RationN& rhs)
 {
+	assert((long int)self.car * rhs.ord<INT_MAX);
+	assert((long int)self.ord * rhs.car<INT_MAX);
 	RationN tmp(self.car * rhs.ord, self.ord * rhs.car);
 	tmp.optimal();
 	return tmp;
@@ -210,6 +215,7 @@ RationN RationN::operator/(const RationN& rhs)
 
 RationN RationN::operator/(const int& rhs)
 {
+	assert((long int)self.ord * rhs<INT_MAX);
 	RationN tmp(self.car, self.ord * rhs);
 	tmp.optimal();
 	return tmp;

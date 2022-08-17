@@ -9,18 +9,20 @@ int main()
 	RationN r2 = 3;
 	RationN r3(3, 4);
 	RationN r4(r1);
-	for(int i=1;i<20;i++){
+	for(int i=1;i<10;i++){
 		if(i%2) r1 *= i;
 		else r1 /= i;
 	}
 	cout << " number ex. r1" << endl;
 	cout << "r1 : " << r1 << endl;
-	for(int i=20;i<23;i++){
+
+	for(int i=3;i<10;i++){
 		if(i%2) r2 = r2 * i;
 		else r2 /= i;
 	}
 	cout << " number ex. r2" << endl;
-	cout << "r2 : " << r1 << endl;
+	cout << "r2 : " << r2 << endl;
+
 	r4 = r2;
 	if(r1 == r4){
 		cout << "r1 and r4 are equal." << endl;
