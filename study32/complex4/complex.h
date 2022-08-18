@@ -41,7 +41,6 @@ public:
 	// Complex operator/(const int& rhs);
 	// *, /
 	// & X
-
 	// ++, -- X
 
 	double real() const;
