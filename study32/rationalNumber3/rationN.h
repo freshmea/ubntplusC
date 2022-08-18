@@ -11,7 +11,6 @@ public:
 	// 복사 생성자 소멸자 없앰. 대입 연산자 없앰.
 	RationN(int car = 0, int ord = 1);
 
-	// RationN& operator=(const RationN& rhs);
 	const RationN& operator+=(const RationN& rhs);
 	const RationN& operator-=(const RationN& rhs);
 	const RationN& operator*=(const RationN& rhs);

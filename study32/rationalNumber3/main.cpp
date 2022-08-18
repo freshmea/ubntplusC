@@ -10,6 +10,9 @@ int main()
 	RationN r3(3, 4);
 	RationN r4(r1);
 	RationN r5;
+	RationN r6(3, 9);
+
+
 	for(int i=1;i<10;i++){
 		if(i%2) r1 *= i ;
 		else r1 /= i;
@@ -17,7 +20,7 @@ int main()
 	cout << " number ex. r1" << endl;
 	cout << "r1 : " << r1 << endl;
 
-	for(int i=3;i<10;i++){
+	for(int i=3;i<15;i++){
 		if(i%2) r2 = r2 * i;
 		else r2 /= i;
 	}
@@ -57,7 +60,7 @@ int main()
 	cout << "r1 : " << r1.rPrint() << endl;
 	cout << "r2 : " << r2.rPrint() << endl;
 	cout << "r3 : " << r3.rPrint() << endl;
-
+	cout << "r6 : " << r6 << endl;
 	RationN ra1=(2,3);
 
 	ra1 = r3+ra1*3;			// 각 연산자의 연산 순서는 계승됨. 

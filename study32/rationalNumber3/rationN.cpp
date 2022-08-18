@@ -28,8 +28,7 @@ const RationN& RationN::operator+=(const RationN& rhs)
 }
 const RationN& RationN::operator-=(const RationN& rhs)
 {
-	assert( (long int)self.car-rhs.car >INT_MIN);
-	assert( (long int)self.ord-rhs.ord >INT_MIN);
+	assert(check( (long int)self.car-rhs.car, (long int)self.ord-rhs.ord));
 	self.car -= rhs.car;
 	self.ord -= rhs.ord;
 	self.optimal();
@@ -37,8 +36,7 @@ const RationN& RationN::operator-=(const RationN& rhs)
 }
 const RationN& RationN::operator*=(const RationN& rhs)
 {
-	assert((long int)self.car*rhs.car <INT_MAX);
-	assert((long int)self.ord*rhs.ord <INT_MAX);
+	assert(check((long int)self.car*rhs.car, (long int)self.ord*rhs.ord));
 	self.car *= rhs.car;
 	self.ord *= rhs.ord;
 	self.optimal();
@@ -46,42 +44,35 @@ const RationN& RationN::operator*=(const RationN& rhs)
 }
 const RationN& RationN::operator/=(const RationN& rhs)
 {
-	assert((long int)self.car*rhs.ord <INT_MAX);
-	assert((long int)self.ord*rhs.car <INT_MAX);
+	assert(check((long int)self.car*rhs.ord, (long int)self.ord*rhs.car));
 	self.car *= rhs.ord;
 	self.ord *= rhs.car;
 	self.optimal();
 	return self;
 }
-// RationN& RationN::operator=(const int& rhs) // 나중에 체크.
-// {
-// 	self.car = rhs;
-// 	self.ord = 1;
-// 	return self;
-// }
 
 const RationN& RationN::operator+=(const int& rhs)
 {
-	assert((long int)self.car +rhs*self.ord < INT_MAX);
+	assert(check ((long int)self.car +rhs*self.ord ));
 	self.car = self.car + rhs*self.ord;
 	return self;
 }
 const RationN& RationN::operator-=(const int& rhs)
 {
-	assert((long int)self.car -rhs*self.ord > INT_MIN);
+	assert(check((long int)self.car - (long int)rhs*self.ord ));
 	self.car = self.car - rhs*self.ord;
 	return self;
 }
 const RationN& RationN::operator*=(const int& rhs)
 {
-	assert ((long int)self.car * rhs < INT_MAX);
+	assert (check((long int)self.car * rhs));
 	self.car *= rhs;
 	self.optimal();
 	return self;
 }
 const RationN& RationN::operator/=(const int& rhs)
 {
-	assert ((long int)self.ord * rhs<INT_MAX);
+	assert (check((long int)self.ord * rhs));
 	self.ord *=rhs;
 	self.optimal();
 	return self;
@@ -124,19 +115,19 @@ const int RationN::ordi() const
 	return self.ord;
 }
 
-void RationN::card(int re)
+void RationN::card(int car)
 {
 	self.car = car;
 }
 
-void RationN::ordi(int im)
+void RationN::ordi(int ord)
 {
 	self.ord = ord;
 }
 
 const RationN RationN::operator*(const RationN& rhs) const
 {
-	assert( (long int)self.car * rhs.car <INT_MAX ) ;
+	assert(check((long int)self.car * rhs.car) );
 	RationN tmp(self.car * rhs.car, self.ord * rhs.ord);
 	tmp.optimal();
 	return tmp;
@@ -144,7 +135,7 @@ const RationN RationN::operator*(const RationN& rhs) const
 
 const RationN RationN::operator*(const int& rhs) const
 {
-	assert( (long int)self.car * rhs <INT_MAX );
+	assert( check((long int)self.car * rhs));
 	RationN tmp(self.car * rhs, self.ord);
 	tmp.optimal();
 	return tmp;
@@ -152,8 +143,7 @@ const RationN RationN::operator*(const int& rhs) const
 
 const RationN RationN::operator+(const RationN& rhs) const
 {
-	assert((long int)self.car*rhs.ord+ (long int)rhs.car * self.ord <INT_MAX);
-	assert((long int)self.ord*rhs.ord<INT_MAX);
+	assert(check((long int)self.car*rhs.ord+ (long int)rhs.car * self.ord, (long int)self.ord*rhs.ord));
 	RationN tmp(self.car * rhs.ord + rhs.car * self.ord, self.ord * rhs.ord);
 	tmp.optimal();
 	return tmp;
@@ -161,7 +151,7 @@ const RationN RationN::operator+(const RationN& rhs) const
 
 const RationN RationN::operator+(const int& rhs) const
 {
-	assert((long int)self.car + (long int)rhs * self.ord<INT_MAX);
+	assert(check((long int)self.car + (long int)rhs * self.ord));
 	RationN tmp(self.car + rhs * self.ord, self.ord);
 	tmp.optimal();
 	return tmp;
@@ -169,8 +159,7 @@ const RationN RationN::operator+(const int& rhs) const
 
 const RationN RationN::operator-(const RationN& rhs) const
 {
-	assert((long int)self.car * rhs.ord - (long int)rhs.car * self.ord>INT_MIN);
-	assert((long int)self.ord * rhs.ord<INT_MAX);
+	assert(check((long int)self.car * rhs.ord - (long int)rhs.car * self.ord, (long int)self.ord * rhs.ord));
 	RationN tmp(self.car * rhs.ord - rhs.car * self.ord, self.ord * rhs.ord);
 	tmp.optimal();
 	return tmp;
@@ -178,7 +167,7 @@ const RationN RationN::operator-(const RationN& rhs) const
 
 const RationN RationN::operator-(const int& rhs) const
 {
-	assert((long int)self.car- (long int)rhs *self.ord>INT_MIN);
+	assert(check((long int)self.car- (long int)rhs *self.ord));
 	RationN tmp(self.car - rhs * self.ord, self.ord);
 	tmp.optimal();
 	return tmp;
@@ -186,8 +175,7 @@ const RationN RationN::operator-(const int& rhs) const
 
 const RationN RationN::operator/(const RationN& rhs) const
 {
-	assert((long int)self.car * rhs.ord<INT_MAX);
-	assert((long int)self.ord * rhs.car<INT_MAX);
+	assert(check((long int)self.car * rhs.ord, (long int)self.ord * rhs.car));
 	RationN tmp(self.car * rhs.ord, self.ord * rhs.car);
 	tmp.optimal();
 	return tmp;
@@ -195,7 +183,7 @@ const RationN RationN::operator/(const RationN& rhs) const
 
 const RationN RationN::operator/(const int& rhs) const
 {
-	assert((long int)self.ord * rhs<INT_MAX);
+	assert(check((long int)self.ord * rhs));
 	RationN tmp(self.car, self.ord * rhs);
 	tmp.optimal();
 	return tmp;
