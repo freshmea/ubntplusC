@@ -1,32 +1,37 @@
 #include <cstdio>
 #include <iostream>
 #include "stack.h"
-#define NUMBEROFSTACK 2
+#define NUMBEROFSTACK 3
 using std::cout;
 using std::endl;
 
 int main()
 {
-	char sNames[NUMBEROFSTACK][10]={"Choi"};
+	string sNames[NUMBEROFSTACK]={"Choi", "KIm", "Hong"};
 	Stack *stacks[NUMBEROFSTACK];
 	for(int i=0;i<NUMBEROFSTACK;i++){
 		stacks[i]=new Stack(sNames[i]);
 	}
-
-	int re;
-	String name;
-
+	cout << stacks[0]->getName() << endl;
+	cout << stacks[1]->getName() << endl;
+	cout << stacks[2]->getName() << endl;
+	cout << stacks[0]->gettos() << ", " << stacks[1]->gettos()<< ", " << stacks[2]->gettos() << endl;
 	for(int i=0;i<NUMBEROFSTACK;i++){
-		 for(int j=0;j<5;j++){
+		for(int j=0;j<10;j++) {
 			stacks[i]->push(j);
-			cout << "adding stacks[" << i << "] Number : " << j << endl;
-		 }
+			cout << stacks[0]->gettos() << ", " << stacks[1]->gettos()<< ", " << stacks[2]->gettos() << endl;
+		}
+
 	}
 
-	*stacks[0] = *stacks[0]+*stacks[1];
-	for(int i=0;i<NUMBEROFSTACK;i++){
-		for (int j=0;j<5;j++){
-			std::cout << stacks[i]->getName() << " : " << j+1 << "st pop() : " << stacks[i]->pop() << std::endl;
+		cout << stacks[0]->gettos() << ", " << stacks[1]->gettos()<< ", " << stacks[2]->gettos() << endl;
+	// *stacks[0] = *stacks[1]+*stacks[2];
+		cout << stacks[0]->gettos() << ", " << stacks[1]->gettos()<< ", " << stacks[2]->gettos() << endl;
+
+	for (int j=0;j<10;j++){
+			for(int i=0;i<NUMBEROFSTACK;i++){
+			cout << stacks[i]->getName() << " : " << j+1 << "st pop() : " << stacks[i]->pop() << endl;
+			cout << stacks[0]->gettos() << ", " << stacks[1]->gettos()<< ", " << stacks[2]->gettos() << endl;
 		}
 	}
 	for(int i=0;i<NUMBEROFSTACK;i++){
@@ -34,4 +39,5 @@ int main()
 	}
 	return 0;
 }
+
 

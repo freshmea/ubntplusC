@@ -1,25 +1,26 @@
 // #pragma once
 #ifndef STACK_H
 #define STACK_H
-#include "string.h"
-
+#include <string>
+using namespace std;
 class Stack{
 private:
-	String name_;
+	string name_;
 	int *pArr_;
 	int size_ ;
 	int tos_;
 
 public:
-	Stack(String name);
+	Stack(const string name);
 	~Stack();
 
 	void push(const int data);
 	int pop();
-	const String getName() const;
-	void resize();
+	const string getName() const;
+	int gettos() const;
+	// void resize();
 	Stack operator=(const Stack& rhs);
-	Stack operator+(const Stack& rhs);
+	// const Stack operator+(const Stack& rhs) const ;
 };
 
 #endif
