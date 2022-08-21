@@ -22,13 +22,39 @@ int main()
 	v1.push_back(10);
 
 	vector<int>::iterator it = v1.begin();
+	// auto it = v1.begin();
 
+	cout << " insert " << endl;
 	it = v1.insert(it, 2);
 	printvector(v1);
 	it = v1.insert(it, 2, 4);
 	printvector(v1);
 	it = v1.insert(it+1, 2, 3);
 	printvector(v1);
+	cout << " insert2 " << endl;
+	v1.insert(v1.begin(), 1, 30);
+	printvector(v1);
+	cout << *v1.begin() << endl;
 
+	v1.pop_back();
+	printvector(v1);
+
+	v1.pop_back();
+	v1.pop_back();
+	printvector(v1);
+
+	v1.erase(v1.begin(), v1.begin()+1);
+	printvector(v1);
+
+	for( vector<int>::iterator i = v1.begin(); i !=v1.end(); ++i)
+		cout << *i << " ";
+
+	cout << v1[0] << endl;
+
+	cout << v1.at(0) << endl;
+
+	cout << (v1<v2) << endl;
+	printvector(v1);
+	printvector(v2);
 	return 0;
 }
