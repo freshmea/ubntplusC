@@ -5,6 +5,7 @@ using std::endl;
 
 int main()
 {
+
 	Array arr1;
 	Array arr2(10);
 	int nums[] = {1, 2, 3, 4, 5};
@@ -22,5 +23,8 @@ int main()
 	for (int i = 0; i< arr3.size();++i){
 		cout << arr3[i]<< " " << endl;		//arr3.operator[](i);
 	}
+
+	// cout << Array::ARRAY_SIZE;
+	cout << "default size : " << Array::getDefaultSize() << endl;
 	return 0;
 }

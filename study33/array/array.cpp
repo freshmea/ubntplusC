@@ -2,11 +2,18 @@
 #include <cassert>
 #define self	(*this)
 
+
 // std::ostream& operator<<(std::ostream& out, const Array& rhs)
 // {
 // 	out << rhs.str ;
 // 	return out;
 // }
+const int Array::ARRAY_SIZE = 100;
+
+int Array::getDefaultSize()
+{
+	return Array::ARRAY_SIZE;
+}
 
 Array::Array(int size)
 : pArr_(new int [size]), size_(size)		// 생성자에서만 쓸 수 있음. constructor init. list

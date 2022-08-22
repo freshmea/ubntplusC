@@ -1,5 +1,5 @@
-#ifndef STACK_H
-#define STACK_H
+#ifndef QUEUEH
+#define QUEUE_H
 
 class Qu{
 	private:
