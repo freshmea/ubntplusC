@@ -1,6 +1,6 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-#include <array.h>
+#include "array.h"
 
 class Qu{
 	private:

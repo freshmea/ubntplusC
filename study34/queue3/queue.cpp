@@ -41,21 +41,23 @@ Qu::Qu(int size)
 
 bool Qu::operator==(const Qu& rhs) const
 {
-	if(front_ != rhs.front_)
+	if(front_ != rhs.front_ || rear_ != rhs.rear_)
 		return false;
-	if(rear_ != rhs.rear_)
-		return false;
-	return arr_ == rhs.arr_;
+	for(int i=front_;i != rear_;i++){
+		if(i == arr_.size()) i = 0;
+		if(arr_[i] != rhs.arr_[i]) return false;
+	}
+	return true;
 }
 
 void Qu::push(int data)
 {
-	assert(!full());
+	// assert(!full()); 		// 나중에 확인하자.
 	rear_++;
-	if(rear_ == size_){
+	if(rear_ == arr_.size()){
 		rear_ = 0;
 		assert(rear_ != front_);
-		arr_[size_-1] = data;
+		arr_[arr_.size()-1] = data;
 	}else {
 	assert(rear_ != front_);
 	arr_[rear_-1] = data;
@@ -64,16 +66,17 @@ void Qu::push(int data)
 
 int Qu::pop()
 {
-	if(front_ == size_)
+	if(front_ == arr_.size())
 		front_ = 0;
-	assert(front_ != rear_);
+	assert(!empty());
 	return arr_[front_++];
 }
 
 bool Qu::full() const
 {
-	if(front_+1 == size_ ) return rear_ != 0;
-	return front_+1 != rear_;
+	if(front_+1 == arr_.size()) 
+		return rear_ == 0;
+	return front_+1 == rear_;
 }
 
 bool Qu::empty() const

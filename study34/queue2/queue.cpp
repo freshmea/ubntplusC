@@ -111,8 +111,8 @@ Qu::~Qu()
 
 bool Qu::full() const
 {
-	if(front_+1 == size_ ) return rear_ != 0;
-	return front_+1 != rear_;
+	if(front_+1 == size_ ) return rear_ == 0;
+	return front_+1 == rear_;
 }
 
 bool Qu::empty() const
