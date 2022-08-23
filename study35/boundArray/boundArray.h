@@ -14,6 +14,7 @@ public:
 	const int& operator[](int index) const;
 
 	int lower() const;
+	
 	int upper() const;
 };
 
