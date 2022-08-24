@@ -52,7 +52,7 @@ bool Qu::operator==(const Qu& rhs) const
 
 void Qu::push(int data)
 {
-	// assert(!full()); 		// 나중에 확인하자.
+	assert(!full()); 		// 나중에 확인하자.
 	rear_++;
 	if(rear_ == arr_.size()){
 		rear_ = 0;
@@ -74,9 +74,9 @@ int Qu::pop()
 
 bool Qu::full() const
 {
-	if(front_+1 == arr_.size()) 
+	if(rear_+1 == arr_.size()) 
 		return rear_ == 0;
-	return front_+1 == rear_;
+	return rear_+1 == front_;
 }
 
 bool Qu::empty() const
