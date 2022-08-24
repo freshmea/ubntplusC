@@ -2,6 +2,11 @@
 #include "complex.h"
 #define self	(*this)
 
+#ifndef INLINE
+#define inline
+#include "complex.inl"
+#endif
+
 std::ostream& operator<<(std::ostream& out, const Complex& rhs)
 {
 	out << "(" << rhs.re <<", "<< rhs.im <<"i)" ;
@@ -23,11 +28,6 @@ Complex& Complex::operator+=(const Complex& rhs)
 	self.re += rhs.re;
 	self.im += rhs.im;
 	return self;
-}
-
-bool Complex::operator==(const Complex &rhs) const
-{
-	return (self.re == self.re && self.im == rhs.im);
 }
 
 bool Complex::operator!=(const Complex &rhs) const
@@ -65,25 +65,4 @@ const Complex Complex::operator-(const Complex& rhs) const
 {
 	Complex tmp(self.re-rhs.re, self.im-rhs.im);
 	return tmp;
-}
-// Complex Complex::operator-(const int& rhs);
-// Complex Complex::operator/(const Complex& rhs);
-// Complex Complex::operator/(const int& rhs);
-
-double Complex::real() const
-{
-	return self.re;
-}
-double Complex::imag() const
-{
-	return self.im;
-}
-
-void Complex::real(double re)
-{
-	self.re = re;
-}
-void Complex::imag(double im)
-{
-	self.im = im;
 }

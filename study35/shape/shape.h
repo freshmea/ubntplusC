@@ -2,7 +2,7 @@
 #define SHAPE_H
 
 class Shape{	//Abstract Base Class(ABC) 12번 라인 때문에 abc 가 됨. 
-private:
+protected:
 	int x_;
 	int y_;
 public:
@@ -11,5 +11,7 @@ public:
 
 	void move(int x, int y);
 	virtual double area() const =0;	// pure virtual function
+	int getx();
+	int gety();
 };
 #endif

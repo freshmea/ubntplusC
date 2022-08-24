@@ -7,6 +7,7 @@ private:
 	int radius_;
 public:
 	Circle(int r, int x, int y);
+	Circle(const Shape& rhs); 
 	// virtual ~Circle() {}
 
 	int radius() const;

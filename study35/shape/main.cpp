@@ -7,6 +7,7 @@ using namespace std;
 
 void printArea(const Shape *ps)
 {
+	cout << "this is pointer function!" << endl;
 	if(typeid(*ps) == typeid(Rectangle)){	//RTTI: RunTime Type Identification
 		cout << "rectangle " << endl;	
 		// Rectangle *pRec = (Rectangle *)ps;
@@ -20,30 +21,34 @@ void printArea(const Shape *ps)
 		cout << "radius : " << pCir->radius();
 	} // else {}
 	cout << "area" << '\t' << " : "<< ps->area() << endl;
+	cout << endl;
 }
 
-void printAreaR(Shape& rs)
+void printArea(const Shape& rs)
 {
+	cout << "this is reference function"<< endl;
 	if(typeid(rs) == typeid(Rectangle)){	//RTTI: RunTime Type Identification
 		cout << "rectangle " << endl;	
 		// Rectangle *pRec = (Rectangle *)ps;
-		const Rectangle crs = dynamic_cast<Rectangle>(rs);	// 레퍼런스 다이나믹 캐스트 잘 안됨... 나중에 다시.
-		// 부모 형의 포인터로는 자식클래스의 메소드로 접근하지 못한다. 이때 RTTI를 쓴다. 
-		cout << "width : " << crs.width() << ", height : " << crs.height() << ", ";
+		const Rectangle *crs = dynamic_cast<const Rectangle *>(&rs); 
+		cout << "width : " << crs->width() << ", height : " << crs->height() << ", " << endl;
 	} else if(typeid(rs) == typeid(Circle)){
 		cout << "circle " << endl;
 		// Circle *pCir = (Circle *)ps;
-		// const Circle *pCir = dynamic_cast<const Circle *>(ps);
-		// cout << "radius : " << pCir->radius();
+		// const Circle *pCir = dynamic_cast<const Circle *>(&rs);
+		// const Circle Cir = dynamic_cast<const Circle>(rs); // 안됨. 
+		const Circle Cir = (const Circle)(rs); 	// circle 의 radius 값을 인식 못함.
+		cout << "radius : " << Cir.radius() << endl;
 	} // else {}
 	cout << "area" << '\t' << " : "<< rs.area() << endl;
+	cout << endl;
 }
 
 int main()
 {
 	Rectangle testRectangle(50, 30, 100, 100 );
 	Shape& rTest = testRectangle;
-	Circle testCircle(100, 300, 100 );
+	Circle testCircle(123, 300, 100 );
 
 	Shape *shapes[5];
 	shapes[0] = new Rectangle(50, 30, 100, 100 );
@@ -55,8 +60,10 @@ int main()
 	for(int i=0;i<5;++i){
 		printArea(shapes[i]);
 	}
-	printAreaR(testRectangle);
-	printAreaR(testCircle);
+	printArea(testRectangle);
+	printArea(testCircle);
+	Shape& fresh = *shapes[0];
+	printArea(fresh);
 
 	for(int i=0;i<5;++i){
 		delete shapes[i];
