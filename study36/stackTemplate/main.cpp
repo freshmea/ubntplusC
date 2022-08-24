@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-	Stack s1;
-	Stack s2(11);
-	Stack s3 = s2;
+	Stack<int> s1;
+	Stack<int> s2(11);
+	Stack<int> s3 = s2;
 
 	s1 = s2;
 
