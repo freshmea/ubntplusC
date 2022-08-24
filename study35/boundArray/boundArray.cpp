@@ -22,7 +22,7 @@ bool BoundArray::operator==(const BoundArray& rhs) const
 {
 	// if (low_ != rhs.low_) return false;
 	// return SafeArray::operator==((SafeArray)rhs);
-	return (low_ == rhs.low_ && SafeArray::operator==((SafeArray)rhs));
+	return (low_ == rhs.low_ && SafeArray::operator==(static_cast<SafeArray>(rhs)));
 }
 
 int& BoundArray::operator[](int index)

@@ -29,7 +29,7 @@ SafeArray<T>::SafeArray(const T *pArr, int size) : Array<T>(pArr, size){}
 
 template <typename T>
 bool SafeArray<T>::operator==(const SafeArray<T>& rhs) const
-{return Array<T>::operator==((Array<T>)rhs);}
+{return Array<T>::operator==( static_cast<Array<T> >(rhs) );}
 
 template <typename T>
 T& SafeArray<T>::operator[](int index)

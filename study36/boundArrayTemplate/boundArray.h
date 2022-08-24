@@ -40,7 +40,7 @@ BoundArray<T>::BoundArray(int low, int upper)
 template <typename T>
 bool BoundArray<T>::operator==(const BoundArray<T>& rhs) const
 {
-	return (low_ == rhs.low_ && SafeArray<T>::operator==((SafeArray<T>)rhs));
+	return (low_ == rhs.low_ && SafeArray<T>::operator== (static_cast<SafeArray<T> >(rhs)) );
 }
 
 template <typename T>

@@ -6,7 +6,7 @@ SafeArray::SafeArray(int size) : Array(size){}
 SafeArray::SafeArray(const int *pArr, int size) : Array(pArr, size){}
 bool SafeArray::operator==(const SafeArray& rhs) const
 {
-	return Array::operator==((Array)rhs);
+	return Array::operator==( static_cast<Array>(rhs));
 }
 
 int& SafeArray::operator[](int index)

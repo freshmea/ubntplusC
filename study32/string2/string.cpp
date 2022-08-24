@@ -27,7 +27,7 @@ std::ostream& operator<<(std::ostream& out, const String& rhs)
 
 String::String(const char *str, bool)
 {
-	self.str = (char *)str;
+	self.str = const_cast<char *>(str);
 	self.len = strlen(str);
 }
 
