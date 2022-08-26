@@ -1,13 +1,11 @@
 TARGET = main
-OBJECTS = main.o string.o stringRep.o
+OBJECTS = main.o complex.o
 
 ${TARGET} : ${OBJECTS}
 	g++ -o ${TARGET} ${OBJECTS}
 main.o : main.cpp
 	g++ -c main.cpp
-string.o : string.cpp
-	g++ -c string.cpp
-stringRep.o : stringRep.cpp
-	g++ -c stringRep.cpp
+complex.o : complex.cpp
+	g++ -c complex.cpp
 clean :
 	rm ${OBJECTS} ${TARGET}
