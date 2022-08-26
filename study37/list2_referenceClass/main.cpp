@@ -16,7 +16,7 @@ int main()
 	cout << list << endl;
 
 	list.delete(3);
-	cout << list << emdl;
+	cout << list << endl;
 
 	return 0;
 }
