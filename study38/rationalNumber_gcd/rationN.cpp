@@ -200,6 +200,7 @@ const RationN RationN::operator/(const int& rhs) const
 
 void RationN::optimal()
 {
+	// 유클리드 호재법.
 	int r;
 	int a = ord_;
 	int b = car_;

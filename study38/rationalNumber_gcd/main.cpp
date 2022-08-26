@@ -61,7 +61,7 @@ int main()
 	cout << "r1 : " << r1.rPrint() << endl;
 	cout << "r2 : " << r2.rPrint() << endl;
 	cout << "r3 : " << r3.rPrint() << endl;
-	r6= r6*1;
+	r6.optimal();
 	cout << "r6 : " << r6 << endl;
 	RationN ra1=(2,3);
 
