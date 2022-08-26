@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aa/ubntplusC/study37/string3_referenceCounting/main.cpp
+iostream
+-
+string.h
+/home/aa/ubntplusC/study37/string3_referenceCounting/string.h
+
+/home/aa/ubntplusC/study37/string3_referenceCounting/string.cpp
+cstring
+-
+cassert
+-
+iostream
+-
+string.h
+/home/aa/ubntplusC/study37/string3_referenceCounting/string.h
+
+/home/aa/ubntplusC/study37/string3_referenceCounting/string.h
+ostream
+-
+stringRep.h
+/home/aa/ubntplusC/study37/string3_referenceCounting/stringRep.h
+
+/home/aa/ubntplusC/study37/string3_referenceCounting/stringRep.cpp
+stringRep.h
+/home/aa/ubntplusC/study37/string3_referenceCounting/stringRep.h
+cassert
+-
+cstring
+-
+
+/home/aa/ubntplusC/study37/string3_referenceCounting/stringRep.h
+

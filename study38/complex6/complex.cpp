@@ -1,15 +1,9 @@
 #include <iostream>
 #include "complex.h"
-#define self	(*this)
-
-#ifndef INLINE
-#define inline
-#include "complex.inl"
-#endif
 
 std::ostream& operator<<(std::ostream& out, const Complex& rhs)
 {
-	out << "(" << rhs.re <<", "<< rhs.im <<"i)" ;
+	out << "(" << rhs.re_ <<", "<< rhs.im_ <<"i)" ;
 	return out;
 }
 void print(/*const*/ Complex &rc)
@@ -19,50 +13,82 @@ void print(/*const*/ Complex &rc)
 
 Complex::Complex(double re, double im)
 {
-	self.re = re;
-	self.im = im;
+	re_ = re;
+	im_ = im;
 }
 
 Complex& Complex::operator+=(const Complex& rhs)
 {
-	self.re += rhs.re;
-	self.im += rhs.im;
-	return self;
+	re_ += rhs.re_;
+	im_ += rhs.im_;
+	return *this;
+}
+
+bool Complex::operator==(const Complex &rhs) const
+{
+	return (re_ == re_ && im_ == rhs.im_);
 }
 
 bool Complex::operator!=(const Complex &rhs) const
 {
-	return self.re != rhs.re || self.im != rhs.im;
-	// return !self.operator==(rhs);
+	return re_ != rhs.re_ || im_ != rhs.im_;
+
 }
 
 bool Complex::operator>(const Complex &rhs) const
 {
-	return self.re * self.re + self.im * self.im > rhs.re * rhs.re + rhs.im * rhs.im;
+	return re_ * re_ + im_ * im_ > rhs.re_ * rhs.re_ + rhs.im_ * rhs.im_;
 }
-// Complex Complex::operator*(const Complex& rhs);
-// Complex Complex::operator*(const int &rhs);
+
 const Complex Complex::operator+(const Complex& rhs) const
 {
-	Complex tmp(self.re+rhs.re, self.im+rhs.im);
+	Complex tmp(re_+ rhs.re_, im_+ rhs.im_);
 	return tmp;
 }
 
 Complex& Complex::operator++()
 {
-	self.re += 1.0;
-	return self;
+	re_ += 1.0;
+	return *this;
 }
 
 Complex Complex::operator++(int )
 {
-	Complex result(self);
-	self.re += 1.0;
+	Complex result(*this);
+	re_ += 1.0;
 	return result;
 }
-// Complex Complex::operator+(const int& rhs);
 const Complex Complex::operator-(const Complex& rhs) const
 {
-	Complex tmp(self.re-rhs.re, self.im-rhs.im);
+	Complex tmp(re_- rhs.re_, im_- rhs.im_);
 	return tmp;
+}
+
+Complex::operator String() const
+{
+	char buf[100];
+	sprintf(buf, "(%.2f, %.2fi)", re_, im_);
+
+	String result(buf);
+
+	return result;
+}
+
+double Complex::real() const
+{
+	return re_;
+}
+double Complex::imag() const
+{
+	return im_;
+}
+
+void Complex::real(double re)
+{
+	re_ = re;
+}
+
+void Complex::imag(double im)
+{
+	im_ = im;
 }

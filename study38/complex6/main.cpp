@@ -1,5 +1,6 @@
 #include <iostream>
 #include "complex.h"
+#include "string.h"
 using std::cout;
 using std::endl;
 
@@ -44,5 +45,10 @@ int main()
 	cout << c1; // cout.operator<<(c1) or operator <<(cout, c1);
 	// 전역 함수로 연산자 를 오버로드 해야됨. 다른 라이브러리에 멤버함수를 추가 할 수는 없음.
 	print(c1);
+
+	// String s = (String)c1;
+	String s = static_cast<String>(c1);
+	cout << "s : " << s << endl;
+
 	return 0;
 }

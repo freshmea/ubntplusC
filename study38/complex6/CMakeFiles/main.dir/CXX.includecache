@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aa/ubntplusC/study38/complex6/complex.cpp
+iostream
+-
+complex.h
+/home/aa/ubntplusC/study38/complex6/complex.h
+
+/home/aa/ubntplusC/study38/complex6/complex.h
+iostream
+-
+string.h
+/home/aa/ubntplusC/study38/complex6/string.h
+
+/home/aa/ubntplusC/study38/complex6/main.cpp
+iostream
+-
+complex.h
+/home/aa/ubntplusC/study38/complex6/complex.h
+string.h
+/home/aa/ubntplusC/study38/complex6/string.h
+
+/home/aa/ubntplusC/study38/complex6/string.cpp
+cstring
+-
+cassert
+-
+iostream
+-
+string.h
+/home/aa/ubntplusC/study38/complex6/string.h
+
+/home/aa/ubntplusC/study38/complex6/string.h
+ostream
+-
+
