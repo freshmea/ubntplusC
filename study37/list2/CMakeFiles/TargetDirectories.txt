@@ -1,0 +1,3 @@
+/home/aa/ubntplusC/study37/list2/CMakeFiles/rebuild_cache.dir
+/home/aa/ubntplusC/study37/list2/CMakeFiles/edit_cache.dir
+/home/aa/ubntplusC/study37/list2/CMakeFiles/main.dir

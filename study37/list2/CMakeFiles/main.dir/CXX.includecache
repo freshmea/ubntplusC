@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aa/ubntplusC/study37/list2/list.cpp
+cstdlib
+-
+cassert
+-
+cstdio
+-
+cstring
+-
+list.h
+/home/aa/ubntplusC/study37/list2/list.h
+
+/home/aa/ubntplusC/study37/list2/list.h
+ostream
+-
+node.h
+/home/aa/ubntplusC/study37/list2/node.h
+
+/home/aa/ubntplusC/study37/list2/main.cpp
+iostream
+-
+list.h
+/home/aa/ubntplusC/study37/list2/list.h
+
+/home/aa/ubntplusC/study37/list2/node.cpp
+node.h
+/home/aa/ubntplusC/study37/list2/node.h
+iostream
+-
+
+/home/aa/ubntplusC/study37/list2/node.h
+

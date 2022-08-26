@@ -1,0 +1,1 @@
+ADD_EXECUTABLE(main main.cpp list.cpp node.cpp)
