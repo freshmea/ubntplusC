@@ -26,6 +26,7 @@ void *threadProc(void *arg)
 			exit(5);
 		}
 		buf[nread]='\0';
+		// 인풋 데이타 처리.
 		printf("buf: %s\n", buf);
 		// atonic 하게 만들어야 할 부분. 
 pthread_mutex_lock(&mutex);
@@ -88,7 +89,7 @@ int main(void)
 		struct sockaddr_in clientAddr;
 		int addrLen = sizeof(struct sockaddr_in);
 		
-		int dataSocket = accept(serverSocket, (struct sockaddr *)&clientAddr, &addrLen);
+		int dataSocket = accept(serverSocket, (struct sockaddr *)&clientAddr, (unsigned int*)&addrLen);
 		if (dataSocket == -1){
 			fprintf(stderr, "accept() error\n");
 			exit(4);
