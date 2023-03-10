@@ -12,7 +12,7 @@ int main(void)
 	*(name +3 ) = 'l';
 	*(name +4 ) = 'o';
 	*(name +5 ) = 'w';
-	*(name +6 ) = '0';
+	*(name +6 ) = '\0';
 	*(name +7 ) = 'l';
 	*(name +8 ) = 'o';
 	*(name +9 ) = 'w';

@@ -16,15 +16,15 @@ int main(void)
 	printf("변수 주소값 : %p\n", str+1);
 	printf("변수 주소값 : %p\n", str+2);
 	printf("변수 주소값 : %p\n", str+3);
-	printf("변수 주소값 : %d\n", str[0]);
+	printf("변수 int값 : %d\n", str[0]);
 	float *str2 = (float*)str;	// 자료를 플로트형으로 변환
 	printf("변수 주소값 : %p\n", str2);
 	printf("변수 주소값 : %p\n", str2+1);
 	printf("변수 주소값 : %p\n", str2+2);
 	printf("변수 주소값 : %p\n", str2+3);
-	printf("변수 주소값 : %f\n", str2[0]);
-	printf("변수 주소값 : %f\n", str2[1]);
-	printf("변수 주소값 : %f\n", str2[2]);
+	printf("변수 부동소수값 : %f\n", str2[0]);
+	printf("변수 부동소수값 : %f\n", str2[1]);
+	printf("변수 부동소수값 : %f\n", str2[2]);
 
 	// printf("변수 주소값 : %f\n", (float)str);
 }

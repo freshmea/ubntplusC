@@ -18,6 +18,13 @@ int main(void)
 	for (int i=0;i<200;i++){
 		printf("C%d: %c\n", i, str2[i]);
 	}
+
+	if (strcmp(str2, str) == 0 ){
+		printf("str and str2 are equal.\n");
+	} else {
+		printf("str and str2 are not equal.\n");
+	}
+	
 	str2[17]='n';	// 널 없애기.
 	if (strcmp(str2, str) == 0 ){
 		printf("str and str2 are equal.\n");

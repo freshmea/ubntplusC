@@ -19,7 +19,9 @@ int main(void)
 	printf("%s\n", word);
 	printf("%s\n", str);
 
-	while(word=strtok(NULL, del))
+	do{
 		printf("%s\n", word);
+	}
+	while(word=strtok(NULL, del));
 	return 0;
 }

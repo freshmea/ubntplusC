@@ -21,7 +21,7 @@ static char board[7][50] = {
 
 void printBoard(Score *player)
 {
-	system("clear");
+	// system("clear");
 	printf("\n\n\nPlayer name: %s\n", player->name);
 	for (int i=0;i<7;i++){
 		printf("%s\n", board[i]);

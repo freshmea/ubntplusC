@@ -37,7 +37,7 @@ String::String(const String& rhs)
 
 String::~String()
 {
-	std::cout << "Destructor excution!" << std::endl;
+	std::cout << "Destructor excution!" << (*this).<< std::endl;
 	delete [] self.str;
 }
 

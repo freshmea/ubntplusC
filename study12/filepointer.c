@@ -9,7 +9,7 @@ int main(void){
 		return 1;
 	}
 	printf("%ld\n", sizeof(a));
-	fprintf(a, "Choi su gil");
+	fprintf(a, "Pack Jung seok");
 	printf("%ld\n", sizeof(a->_ptr));
 	fclose(a);
 }

@@ -4,7 +4,7 @@
 int main(void)
 {
 	int a;
-	int *p;
+	int *p = NULL;
 
 	a= 100;
 	p = &a;

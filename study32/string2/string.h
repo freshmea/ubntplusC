@@ -10,7 +10,7 @@ private:
 	int len;
 
 	String(const char *str, bool);
-	void init_str(const char *str);		// 내부적으로사용 tool function. helper hunction.
+	void init_str(const char *str);		// 내부적으로사용 tool function. helper function.
 public:
 	String(const char *str = NULL);
 	String(const String& rhs);

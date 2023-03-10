@@ -3,7 +3,7 @@
 int main(void)
 {
 	int nums[10]= {40, 20, 52, 12, 34, 64, 94, 85, 71, 4}; //초기화 리스트 
-
+	int count = 0;
 	// sorting
 	for (int i =0; i<10-1; ++i){
 		for (int j = i + 1; j < 10; ++j){
@@ -11,13 +11,15 @@ int main(void)
 				int tmp = nums[i];
 				nums[i] = nums[j];
 				nums[j] = tmp;
+				
 			}
+			count++;
 		}
 	}
 
 	for(int i=0;i<10;++i){
 		printf("%d ", nums[i]);
 	}
-	printf("\n");
+	printf("count:%d\n",count);
 	return 0;
 }

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int main(void)
 {
@@ -10,7 +11,5 @@ int main(void)
 		}
 		printf("\n");
 	}
-	// _Sleep(1000);
-
-
+	sleep(10);
 }
