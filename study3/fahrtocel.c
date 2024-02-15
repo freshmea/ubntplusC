@@ -6,7 +6,7 @@ int main(void)
 	int celsius;
 	int celsius1;
 	int celsius2;
-	int temp;
+	// int temp;
 
 	fahr = 100;
 	fahr = fahr*1000;
