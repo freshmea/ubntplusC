@@ -2,7 +2,7 @@ TARGET = arithmetics average2 circle fahrtocel genderRatio incrementor limits li
 CC = gcc
 CFLAGS = -g -Wall
 
-main : $(TARGET)
+all : $(TARGET)
 arithmetics : $@
 average2 : $@
 circle : $@
