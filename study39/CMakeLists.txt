@@ -6,16 +6,33 @@
 
 # booklist.cpp 를 컴파일 하기위 한 cmakelists.txt 를 만들어줘
 
+# cmake_minimum_required(VERSION 3.10)
+# project(BookList)
+
+# set(CMAKE_CXX_STANDARD 14)
+
+# find
+# include_directories(/usr/include/mysql)
+
+# add_executable(${PROJECT_NAME} booklist.cpp)
+# target_link_libraries(${PROJECT_NAME} mysqlcppconn)
+
+# add_executable(${PROJECT_NAME}2 booklist.c)
+# target_link_libraries(${PROJECT_NAME}2 mysqlclient)
+
+
 cmake_minimum_required(VERSION 3.10)
 project(BookList)
 
 set(CMAKE_CXX_STANDARD 14)
 
-find_package(Threads REQUIRED)
+find_library(MYSQLCPPCONN_LIBRARY mysqlcppconn HINTS /usr/lib)
+find_library(MYSQLCLIENT_LIBRARY mysqlclient HINTS /usr/lib)
 
-include_directories(/usr/include/cppconn)
-link_directories(/usr/lib)
+include_directories(/usr/include/mysql)
 
-add_executable(BookList booklist.cpp)
+add_executable(${PROJECT_NAME} booklist.cpp)
+target_link_libraries(${PROJECT_NAME} ${MYSQLCPPCONN_LIBRARY})
 
-target_link_libraries(BookList mysqlcppconn)
+add_executable(${PROJECT_NAME}2 booklist.c)
+target_link_libraries(${PROJECT_NAME}2 ${MYSQLCLIENT_LIBRARY})
