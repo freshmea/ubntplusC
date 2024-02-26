@@ -7,6 +7,26 @@
         "iostream": "cpp",
         "complex": "cpp",
         "foo.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "*.ipp": "c",
+        "array": "c",
+        "*.tcc": "c",
+        "bitset": "c",
+        "string": "c",
+        "vector": "c",
+        "string_view": "c",
+        "functional": "c",
+        "iomanip": "c",
+        "istream": "c",
+        "limits": "c",
+        "ostream": "c",
+        "ranges": "c",
+        "ratio": "c",
+        "sstream": "c",
+        "stop_token": "c",
+        "streambuf": "c",
+        "tuple": "c",
+        "*.inc": "c",
+        "*.txx": "c"
     }
 }
